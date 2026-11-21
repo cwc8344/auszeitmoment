@@ -81,6 +81,97 @@ function field(array $data, string $key, int $length, string $default = ''): str
     return trim($value);
 }
 
+
+function googleRequest(string $url, array $options): array
+{
+    $client = curl_init($url);
+    curl_setopt_array($client, $options + [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 12,
+        CURLOPT_FOLLOWLOCATION => false,
+    ]);
+    $body = curl_exec($client);
+    if (!is_string($body) || curl_getinfo($client, CURLINFO_RESPONSE_CODE) !== 200) {
+        throw new RuntimeException('Google did not return a successful response.');
+    }
+    $data = json_decode($body, true, 16, JSON_THROW_ON_ERROR);
+    if (!is_array($data)) {
+        throw new RuntimeException('Invalid Google response.');
+    }
+    return $data;
+}
+
+function redirectLogin(string $status = ''): never
+{
+    header('Location: admin.html' . ($status === '' ? '' : '?auth=' . $status), true, 303);
+    exit;
+}
+
+function googleLogin(string $route, array $config): never
+{
+    if (empty($config['google_client_id']) || empty($config['google_client_secret']) ||
+        empty($config['google_admin_email'])) {
+        redirectLogin('not_configured');
+    }
+    $redirect = $config['origin'] . '/admin-google-callback.php';
+    if ($route === 'google-start') {
+        $state = bin2hex(random_bytes(32));
+        $verifier = bin2hex(random_bytes(32));
+        $_SESSION['google_login'] = ['state' => $state, 'verifier' => $verifier, 'expires' => time() + 600];
+        $challenge = rtrim(strtr(base64_encode(hash('sha256', $verifier, true)), '+/', '-_'), '=');
+        $params = [
+            'client_id' => $config['google_client_id'], 'redirect_uri' => $redirect,
+            'response_type' => 'code', 'scope' => 'openid email', 'state' => $state,
+            'code_challenge' => $challenge, 'code_challenge_method' => 'S256',
+            'prompt' => 'select_account', 'login_hint' => $config['google_admin_email'],
+        ];
+        header('Location: https://accounts.google.com/o/oauth2/v2/auth?' . http_build_query($params), true, 303);
+        exit;
+    }
+
+    $login = $_SESSION['google_login'] ?? null;
+    unset($_SESSION['google_login']);
+    $state = $_GET['state'] ?? null;
+    if (!$login || $login['expires'] < time() || !is_string($state) || !hash_equals($login['state'], $state)) {
+        redirectLogin('invalid');
+    }
+    if (isset($_GET['error'])) {
+        redirectLogin('cancelled');
+    }
+    $code = $_GET['code'] ?? null;
+    if (!is_string($code) || $code === '' || strlen($code) > 4096) {
+        redirectLogin('invalid');
+    }
+    try {
+        $token = googleRequest('https://oauth2.googleapis.com/token', [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query([
+                'code' => $code, 'client_id' => $config['google_client_id'],
+                'client_secret' => $config['google_client_secret'], 'redirect_uri' => $redirect,
+                'grant_type' => 'authorization_code', 'code_verifier' => $login['verifier'],
+            ]),
+        ]);
+        $accessToken = $token['access_token'] ?? '';
+        if (!is_string($accessToken) || !preg_match('#^[a-zA-Z0-9._~+/-]+=*$#D', $accessToken)) {
+            redirectLogin('invalid');
+        }
+        $account = googleRequest('https://openidconnect.googleapis.com/v1/userinfo', [
+            CURLOPT_HTTPHEADER => ['Authorization: Bearer ' . $accessToken],
+        ]);
+    } catch (Throwable $e) {
+        redirectLogin('error');
+    }
+
+    if (($account['email_verified'] ?? false) !== true ||
+        !is_string($account['email'] ?? null) ||
+        strcasecmp($account['email'], $config['google_admin_email']) !== 0) {
+        redirectLogin('denied');
+    }
+    session_regenerate_id(true);
+    $_SESSION['admin_until'] = time() + 28800;
+    redirectLogin();
+}
+
 $configFile = dirname(__DIR__) . '/auszeitmoment-admin-config.php';
 if (!is_file($configFile)) {
     respond(503, ['error' => 'Die Terminverwaltung wird eingerichtet.']);
@@ -95,8 +186,11 @@ try {
     }
     session_name('az_admin');
     ini_set('session.use_strict_mode', '1');
-    session_set_cookie_params(['httponly' => true, 'secure' => true, 'samesite' => 'Strict', 'path' => '/']);
+    session_set_cookie_params(['httponly' => true, 'secure' => true, 'samesite' => 'Lax', 'path' => '/']);
     session_start();
+    if ($method === 'GET' && in_array($route, ['google-start', 'google-callback'], true)) {
+        googleLogin($route, $config);
+    }
     $authenticated = ($_SESSION['admin_until'] ?? 0) > time();
     if ($method === 'GET' && $route === 'me') {
         respond(200, ['authenticated' => $authenticated]);
@@ -116,7 +210,7 @@ try {
         session_destroy();
         respond(200, ['ok' => true]);
     }
-    if (!$authenticated && !($method === 'POST' && $route === 'password-login')) {
+    if (!$authenticated) {
         respond(401, ['error' => 'Bitte zuerst anmelden.']);
     }
 
@@ -125,24 +219,6 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
     ]);
-
-    if ($route === 'password-login' && $method === 'POST') {
-        $key = hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '');
-        $expiry = time() + 1800;
-        query($db, 'DELETE FROM admin_login_limits WHERE expires_at <= ?', [time()]);
-        query($db, 'INSERT INTO admin_login_limits VALUES (?, 1, ?) ON DUPLICATE KEY UPDATE attempts=attempts+1', [$key, $expiry]);
-        $attempts = query($db, 'SELECT attempts FROM admin_login_limits WHERE address_hash=?', [$key])->fetchColumn();
-        if ($attempts > 5) {
-            respond(429, ['error' => 'Zu viele Versuche. Bitte in 30 Minuten erneut versuchen.']);
-        }
-        if (!password_verify(field($data, 'password', 128), $config['password_hash'])) {
-            respond(401, ['error' => 'Passwort nicht erkannt.']);
-        }
-        query($db, 'DELETE FROM admin_login_limits WHERE address_hash=?', [$key]);
-        session_regenerate_id(true);
-        $_SESSION['admin_until'] = time() + 28800;
-        respond(200, ['ok' => true]);
-    }
 
     if ($method === 'GET') {
         $lists = [
