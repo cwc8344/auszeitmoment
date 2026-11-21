@@ -1,0 +1,24 @@
+/* Rechtliche Seiten – abgestimmt auf Auszeitmoment */
+.az-legal-hero{padding:66px 0 46px;background:linear-gradient(125deg,#fbf1ee,#fffdfa 75%);border-bottom:1px solid #eadbd5;text-align:center}
+.az-legal-hero .eyebrow{color:#a4696f}.az-legal-hero h1{font-family:Georgia,"Palatino Linotype",serif;color:#713f49;font-style:italic;font-weight:400;line-height:1.12;font-size:clamp(3.2rem,6.2vw,5.2rem);margin:8px 0 16px}
+.az-legal-hero p{color:#766b65;margin:0 auto;max-width:700px}
+.az-legal-wrap{max-width:880px;margin:0 auto;padding:45px 26px 88px}
+.az-legal-wrap h2{font-family:Georgia,"Palatino Linotype",serif;font-size:1.68rem;line-height:1.25;color:#764952;margin:33px 0 10px;font-weight:500}
+.az-legal-wrap h3{font-size:1.12rem;color:#805b60;margin:21px 0 7px;font-family:Georgia,serif}
+.az-legal-wrap p,.az-legal-wrap li{font-size:.965rem;line-height:1.82;color:#655955}
+.az-legal-wrap ul{padding-left:22px;margin:7px 0 17px}
+.az-legal-wrap a:not(.btn){color:#8c545b;text-decoration:underline;text-underline-offset:3px}
+.az-legal-wrap .az-note{background:#faf1ed;border:1px solid #ead3cd;border-left:3px solid #b77b82;border-radius:10px;padding:18px 20px;margin:23px 0}
+.az-legal-wrap .az-note p{margin:5px 0}
+.az-legal-wrap .az-contact-card{background:#fffdfa;border:1px solid #eadbd5;border-radius:18px;padding:25px 28px;box-shadow:0 10px 27px rgba(74,45,45,.035)}
+.az-legal-wrap .az-contact-card p{margin:.35em 0}
+.az-legal-wrap .az-footnote{font-size:.82rem;color:#988882}
+.az-legal-wrap .az-divider{border:0;border-top:1px solid #e8d9d3;margin:28px 0}
+.az-legal-wrap .az-topnav{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:30px}
+.az-legal-wrap .az-topnav a{font-size:.85rem;border:1px solid #e7d6cf;padding:7px 12px;border-radius:25px;background:#fff8f5;text-decoration:none!important}
+.az-legal-wrap .az-topnav a[aria-current=page]{background:#ad767b;color:white}
+.az-legal-wrap .az-warning{background:#fff7e8;border:1px solid #ecd9b6;padding:14px 17px;border-radius:9px;margin-top:25px}
+.az-legal-wrap .az-warning p{margin:0;font-size:.88rem}
+@media(max-width:760px){.az-legal-hero{padding:43px 0 30px}.az-legal-wrap{padding:30px 18px 60px}.az-legal-wrap .az-contact-card{padding:20px}}
+
+.az-contact-quick{border:1px solid #ead8d3;background:#fff9f6;padding:16px 20px;border-radius:12px;margin:15px 0}.az-contact-quick a{color:#86515c;font-weight:700}.az-contact-quick p{margin-top:8px}.az-terms-note{font-size:.8rem;color:#73615d;line-height:1.6;margin:4px 0 14px}.az-terms-note a{color:#9b6571;text-decoration:underline}

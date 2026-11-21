@@ -1,0 +1,165 @@
+/* Auszeitmoment – final visual cleanup. The selected original logo and images are preserved. */
+:root{--az-text:#4c4745;--az-muted:#766d69;--az-border:#ebdfd9;--az-rose:#a76a70;--az-bg:#fffcfa}
+body{color:var(--az-text);background:var(--az-bg)}
+.site-header{box-shadow:none!important}
+.site-nav a{white-space:nowrap}
+.section{padding-block:75px!important}
+.section-heading{margin-bottom:34px!important}
+.section-heading h2,.about h2{font-style:normal!important;font-weight:500}
+.hero{min-height:570px!important}
+.hero-copy{padding-block:90px 70px!important}
+.hero h1{font-style:normal!important;font-size:clamp(3.1rem,5.4vw,5.7rem)!important;line-height:1.04;margin:0 0 22px!important}
+.hero .hero-actions{margin:28px 0 0!important}
+.hero-desc{line-height:1.72!important;max-width:430px}
+.places{gap:19px!important}
+.place-content{padding:21px 23px 23px!important}
+.place-content h3{margin:0 0 7px!important;font-size:1.65rem!important}
+.place-content p{margin:0;line-height:1.6!important}
+.wunschort-extra{margin:24px auto 0!important;padding:0!important;border:0!important;text-align:center;font-size:.92rem}
+#ueber-mich{background:#fbf7f4!important}
+.about{gap:65px!important}
+.about h2{max-width:510px;line-height:1.15!important}
+.about p{line-height:1.7;max-width:540px}
+.about p + p{margin-top:14px}
+.about .about-note{padding-top:13px;border-top:1px solid var(--az-border);font-style:italic}
+.about-photo{border-radius:12px!important;box-shadow:0 13px 28px rgba(85,55,49,.085)!important}
+.massage-page .massage-page-header{padding-block:55px 18px!important;background:#fffcfa!important}
+.massage-page-header h1{font-style:normal!important;font-size:clamp(3.25rem,5vw,5rem)!important}
+.massage-page-header>p{margin-top:10px}
+.massage-entry{gap:48px!important;padding-block:28px!important}
+.massage-page .massage-content p{line-height:1.75!important;max-width:475px}
+.massage-page .massage-entry .massage-visual{box-shadow:none!important;border:1px solid #eee7e2}
+.massage-page .massage-entry .massage-visual img{object-fit:cover}
+.massage-page #fussreflexzonenmassage .massage-visual img{height:auto!important;object-fit:contain!important}
+.massage-page .massage-clean-divider{margin-block:9px!important;background:#eee5e0!important}
+.massage-page .massage-pricing{margin-top:28px!important}
+.massage-page .massage-pricing h2{font-style:normal!important;font-size:clamp(2.7rem,4vw,3.7rem)!important}
+.massage-page .massage-service-note,.massage-page .massage-travel-note{margin:7px auto!important;max-width:650px}
+.massage-page .massage-tax-note{font-size:.76rem;margin-top:15px!important}
+.massage-page .massage-disclaimer{margin-top:14px;margin-bottom:36px!important;max-width:750px}
+.massage-page .massage-disclaimer p{font-size:.78rem;color:#827671}
+.subhero,.subhero-light{padding-block:50px 42px!important;background:#fbf6f2!important}
+.subhero h1{font-style:normal!important;font-size:clamp(3.5rem,5vw,5rem)!important}
+.contact-grid{gap:45px!important}
+.contact-intro h2{font-size:clamp(2.2rem,3.3vw,3.1rem);font-style:normal!important}
+.contact-intro .contact-portrait{aspect-ratio:1.25!important;object-position:center 18%!important;border-radius:12px!important}
+.az-contact-quick{line-height:1.9}
+.booking-form{border-radius:12px!important;box-shadow:none!important}
+.booking-form h3{font-size:2.25rem!important;font-style:normal!important}
+.appointment-v2 .booking-hero{padding-block:38px 27px!important;background:#fbf6f2!important}
+.appointment-v2 .booking-hero h1{font-style:normal!important;font-size:clamp(3.3rem,5vw,5rem)!important}
+.appointment-v2 .flow-step{box-shadow:none!important;padding:30px 35px!important}
+.appointment-v2 .flow-heading h2{font-style:normal!important;font-size:2.45rem!important}
+.appointment-v2 .step-counter{border-radius:50%!important}
+.legal h1,.legal h2{font-style:normal!important}
+.az-tidy-footer{background:#faf6f3!important;border-top:1px solid #eee2dc!important;padding:22px 0 18px!important}
+.az-footer-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.az-footer-identity{font:italic 22px Georgia,serif;color:#785456}
+.az-footer-identity span{font:400 11px Arial,sans-serif;letter-spacing:.06em;color:#9a8580;margin-left:6px}
+.az-footer-links{display:flex;flex-wrap:wrap;gap:21px}
+.az-footer-links a{color:#6c625f;font-size:.83rem}
+.az-footer-links a:hover{text-decoration:underline}
+.az-footer-copy{font-size:.75rem;color:#9b8f89;margin:15px 0 0!important}
+@media(max-width:760px){.hero{min-height:0!important}.hero-copy{padding:16px 0 46px!important}.hero h1{font-size:clamp(3rem,10vw,4.3rem)!important}.section{padding-block:56px!important}.about{gap:23px!important}.massage-entry{gap:20px!important;padding-block:23px!important}.contact-grid{gap:24px!important}.appointment-v2 .flow-step{padding:23px 19px!important}.az-footer-identity{font-size:20px}}
+@media(max-width:440px){.az-footer-links{gap:10px 17px}.az-footer-bar{align-items:flex-start;flex-direction:column}}
+/* Photos have their true proportions; no empty bands and no clipped feet. */
+.massage-page .massage-entry .massage-visual {height:auto!important;aspect-ratio:auto!important;overflow:hidden!important}
+.massage-page .massage-entry .massage-visual img {width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;display:block}
+
+/* Logo exactly 50% larger than the preceding approved website version.
+   Only header dimensions/responsive navigation adapt to its new size. */
+.site-header{height:148px!important}
+.site-header .brand-logo-image{width:264px!important;max-width:none!important;height:auto!important}
+.site-header .nav-wrap{min-height:0}
+html{scroll-padding-top:155px}
+@media(max-width:990px){
+  .site-header .menu-toggle{display:block;margin-left:auto}
+  .site-header .header-btn{display:none}
+  .site-header .site-nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    padding:22px;flex-direction:column;align-items:flex-start;gap:18px;
+    background:#fffcfa;box-shadow:0 12px 30px rgba(50,40,36,.10)
+  }
+  .site-header .site-nav.open{display:flex}
+}
+@media(max-width:760px){
+  .site-header{height:122px!important}
+  .site-header .brand-logo-image{width:211.5px!important}
+  html{scroll-padding-top:128px}
+}
+@media(max-width:420px){
+  .site-header{height:114px!important}
+  .site-header .brand-logo-image{width:195px!important}
+  html{scroll-padding-top:120px}
+}
+
+/* The logo is remastered from the clean original, not the noisy transparency export. */
+.site-header .brand-logo-image{image-rendering:auto;object-fit:contain;filter:none!important}
+
+/* Admin-Zugang: ausschließlich ganz unten rechts in der Fußzeile. */
+.az-tidy-footer .az-footer-bar{align-items:center}
+.az-tidy-footer .az-admin-footer-link{
+ display:block;width:max-content;margin:9px 0 0 auto;
+ border:1px solid #dbcbc6;border-radius:99px;padding:7px 16px;
+ background:transparent;color:#8d746e;font-size:.79rem;line-height:1.5;
+ text-decoration:none;font-weight:600;transition:background .2s,border-color .2s;
+}
+.az-tidy-footer .az-admin-footer-link:hover,.az-tidy-footer .az-admin-footer-link:focus-visible{
+ background:#f2e7e4;border-color:#b89189;color:#704f4a;
+}
+@media(max-width:440px){.az-tidy-footer .az-admin-footer-link{margin-left:auto}}
+
+.az-tidy-footer .az-footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:15px;flex-wrap:wrap}
+.az-tidy-footer .az-footer-bottom .az-footer-copy{margin:0!important}
+.az-tidy-footer .az-footer-bottom .az-admin-footer-link{margin:0 0 0 auto!important}
+
+/* Startseite: Büros/Veranstaltungen deutlich hervorheben, ohne Schmuckelemente. */
+.wunschort-extra {
+  font-size: clamp(1.28rem, 2.35vw, 1.65rem) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  color: #7b5356 !important;
+  letter-spacing: 0.005em;
+  max-width: 800px;
+  margin: 37px auto 0 !important;
+  padding: 18px 12px 0 !important;
+  border-top: 1px solid #e6d4cb !important;
+}
+
+/* Startseite: ein einziger, elegant hervorgehobener Neueröffnungs- und Rabatt-Hinweis. */
+.hero .az-local-offer{
+  display:flex; flex-direction:column; align-items:flex-start; gap:5px;
+  width:max-content; max-width:100%; margin:0 0 29px!important;
+  padding:17px 26px 18px; border:1px solid #e5d2cb; border-left:4px solid #a46f76;
+  border-radius:3px 16px 16px 3px;
+  background:rgba(255,248,245,.96); box-shadow:0 8px 28px rgba(87,63,58,.07);
+}
+.hero .az-local-offer span{
+  color:#8a6d68; font:600 .85rem/1.35 Arial,sans-serif;
+  text-transform:uppercase; letter-spacing:.12em;
+}
+.hero .az-local-offer strong{
+  color:#75474f; font:600 clamp(1.65rem,2.6vw,2.25rem)/1.18 Georgia,'Times New Roman',serif;
+  letter-spacing:-.018em;
+}
+@media(max-width:760px){
+  .hero .az-local-offer{padding:14px 17px 15px; margin-bottom:20px!important}
+  .hero .az-local-offer span{font-size:.74rem}
+  .hero .az-local-offer strong{font-size:clamp(1.42rem,6vw,1.8rem)}
+}
+
+
+/* Buchungsseite: Ausstattungswahl ohne dekorative Symbole. */
+.appointment-v2 .equipment-option{
+  display:flex!important; flex-direction:row!important; align-items:center!important;
+  justify-content:flex-start!important; gap:13px!important;
+  min-height:64px!important; padding:15px 16px!important;
+}
+.appointment-v2 .equipment-option input[type=checkbox]{
+  position:static!important; inset:auto!important; opacity:1!important;
+  width:19px!important; height:19px!important; margin:0!important;
+  flex:0 0 19px!important; accent-color:#965f68;
+}
+.appointment-v2 .equipment-option .eq-icon,
+.appointment-v2 .equipment-option .eq-check{display:none!important}

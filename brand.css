@@ -1,0 +1,71 @@
+500;600&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap');
+:root{--cream:#fff;--paper:#fff;--sand:#f9f7f5;--olive:#7d6c60;--dark:#53473f;--text:#55514f;--gold:#9a7e6b;--gold2:#cda297;--border:#ede4e2;--shadow:0 18px 50px rgba(75,50,50,.07)}
+body{background:#fff;color:var(--text)}
+.site-header{height:84px;background:rgba(255,255,255,.97);border-bottom:1px solid #f0e9e6}
+.brand{display:flex;gap:10px;align-items:center;min-width:0}.brand-mark-image{width:58px;height:50px;object-fit:contain;flex:none}
+.brand-text strong{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:1.45rem;letter-spacing:-.02em;white-space:nowrap;color:#78565a;line-height:.9}
+.brand-text strong em{font-family:'Great Vibes',cursive;font-style:normal;font-weight:400;font-size:1.18em;letter-spacing:.003em;margin-left:.02em;color:#a68a79}
+.brand-text small{font-size:.58rem;letter-spacing:.22em;margin-top:8px;color:#7c8972;font-weight:700}
+.site-nav{gap:25px;color:#514b4a}.site-nav a:hover,.site-nav a[aria-current=page]{color:#997b69}
+.btn,.header-btn,.site-header .header-btn{background:#997b69!important;color:#fff!important;box-shadow:0 7px 18px rgba(151,100,113,.14)!important}
+.btn:hover,.header-btn:hover{background:#986774!important}
+.eyebrow{color:#997b69}.hero{background:#faf8f7;min-height:575px}
+.hero-photo:before{background:linear-gradient(90deg,#faf8f7 0%,rgba(250,248,247,.90) 8%,rgba(250,248,247,.10) 42%,transparent 75%)}
+.hero h1{color:#415c50}.hero h1 em{color:#997b69}
+.section{background:white}.section-heading h2,.about h2{color:#41564a}
+.place-card{border-color:#f0eae7;background:#fff;box-shadow:0 16px 35px rgba(61,43,43,.05)}
+.place-content .micro{color:#b98e83}.place-content h3{color:#3f5349}
+.wunschort-extra{border-color:#ece7e1;color:#657168}.wunschort-extra strong{color:#466354}
+.about-photo{box-shadow:0 18px 48px rgba(62,52,49,.11)}.photo-note{color:#858583}
+.footer{background:#faf9f8;border-top:1px solid #eee6e4;padding:30px 0 22px}
+.footer-brand img{width:225px;height:auto;max-width:100%}
+.footer-nav{color:#5d5856}.footer-bottom{border-color:#ebe5e2}
+.massage-page{background:#fff}.massage-page .site-header{background:#fff}
+.massage-page .site-nav a[aria-current=page],.massage-page .site-nav a:hover{color:#997b69}
+.massage-page-header{padding-top:52px;padding-bottom:37px}.massage-page-header h1{color:#584941}
+.massage-page .massage-title-row h2{color:#574b45}.massage-page .massage-icon{color:#ce9e94}.massage-page .section-divider{color:#ce9e94}
+.massage-page .massage-detail{background:#f9f4f2;color:#846d63}
+.massage-page .massage-pricing{border-color:#eee3de}.massage-page .massage-pricing-eyebrow{color:#997b69}
+.massage-page .massage-pricing h2{color:#544740}.massage-page .massage-price-option strong{color:#775f52}
+.massage-page .massage-travel-note strong{color:#775f52}
+.subhero-light{background:#fbf9f8;border-bottom:1px solid #f0e8e3}
+.contact-hint{background:#faf7f6}.contact-hint-icon,.text-arrow{color:#997b69}
+.booking-form{border:1px solid #efe8e3;background:#fff;box-shadow:0 16px 38px rgba(68,47,45,.045)}
+.booking-form label{color:#584a44}.booking-form input,.booking-form textarea{background:#fff}
+.appointment-v2 .booking-hero{background:#fff!important}.appointment-v2 .mini-label{color:#997b69}.appointment-v2 .step-counter{color:#997b69;background:#faf7f4;border-color:#eaded8}
+.appointment-v2 .flow-step{border-color:#efe8e3!important;box-shadow:0 10px 36px rgba(82,60,60,.035)!important}
+.appointment-v2 .continue-btn,.appointment-v2 .send-inquiry{background:#997b69!important}
+.appointment-v2 .continue-btn:hover,.appointment-v2 .send-inquiry:hover{background:#806757!important}
+.appointment-v2 .duration-quantity-label strong,.appointment-v2 .flow-heading h2{color:#584b43}
+.appointment-v2 .origin-inline select,.appointment-v2 .booking-details-form input,.appointment-v2 .booking-details-form select{border-color:#e6dedc}
+.appointment-v2 .duration-quantity-control button{background:#f9f7f5;color:#8f7565}
+.appointment-v2 .time-options button.selected,.appointment-v2 .calendar-day.is-selected,.appointment-v2 .time-flexible.selected{background:#997b69;border-color:#997b69}
+.appointment-v2 .equipment-option:has(input:checked),.appointment-v2 .lift-options label:has(input:checked){background:#fcf8f6;border-color:#c7a398}
+.appointment-v2 .request-total strong{color:#7c614f}
+@media(max-width:1040px){.site-nav{gap:15px}.brand-text strong{font-size:1.25rem}.brand-mark-image{width:50px}}
+@media(max-width:760px){.site-header{height:72px}.site-nav{top:71px}.brand-text strong{font-size:1.28rem}.brand-mark-image{width:48px;height:45px}.footer-brand img{width:215px}.hero-photo:before{background:linear-gradient(0deg,#faf8f7 0%,transparent 36%)}}
+@media(max-width:430px){.brand-text strong{font-size:1.11rem}.brand-text small{font-size:.48rem}.brand-mark-image{width:42px}}
+
+/* Auszeitmoment: Original-Wellenlogo mit transparentem Hintergrund, auf allen Seiten */
+.site-header{height:96px;background:#fff;}
+.nav-wrap{align-items:center;}
+.site-header .brand{display:flex;align-items:center;flex:none;min-width:0;}
+.site-header .brand-logo-image{display:block;width:176px;max-width:100%;height:auto;object-fit:contain;}
+.site-header .site-nav{gap:21px;}
+.site-header .header-btn{background:#947764!important;box-shadow:0 6px 14px rgba(99,73,55,.12)!important;}
+.site-header .header-btn:hover{background:#795e4f!important;}
+.footer-brand img{display:block;width:238px;max-width:100%;height:auto;}
+.eyebrow,.massage-page .massage-pricing-eyebrow{color:#997b69;}
+.hero h1 em{color:#a47b6a;}
+.hero{background:#fbfaf9;}
+.hero-photo:before{background:linear-gradient(90deg,#fbfaf9 0%,rgba(251,250,249,.9) 8%,rgba(251,250,249,.1) 42%,transparent 75%);}
+.massage-page .massage-detail{background:#faf6f4;}
+.massage-page .massage-icon,.massage-page .section-divider{color:#c99b91;}
+@media(max-width:760px){
+  .site-header{height:76px;}
+  .site-header .brand-logo-image{width:141px;}
+  .site-nav{top:75px;}
+  .hero-photo:before{background:linear-gradient(0deg,#fbfaf9 0%,transparent 36%);}
+  .footer-brand img{width:218px;}
+}
+@media(max-width:420px){.site-header .brand-logo-image{width:130px;}}

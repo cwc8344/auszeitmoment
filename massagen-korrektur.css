@@ -1,0 +1,15 @@
+/* Ruhige Angebotsseite: nur das Original-Logo im Header, ohne wiederholte Motive. */
+.massage-page .massage-page-header{background:#fffdfa!important;padding-top:64px;padding-bottom:28px}
+.massage-page .massage-sections{padding-top:6px}
+.massage-page .massage-clean-divider{border:0;height:1px;background:#e9d9d3;width:min(1120px,calc(100% - 52px));margin:20px auto}
+.massage-page .massage-visual{border-radius:12px;background:#fff}
+.massage-page .massage-entry .massage-visual img{display:block}
+/* Das komplette Wunschfoto: weder Zehen noch Kerzen, Handtücher oder Pflanzen abschneiden. */
+.massage-page #fussreflexzonenmassage .massage-visual{height:auto!important;aspect-ratio:auto!important;overflow:visible}
+.massage-page #fussreflexzonenmassage .massage-visual img{width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important}
+.massage-page .az-footer-text{font:italic 27px 'Cormorant Garamond',Georgia,serif;color:#784b53;text-decoration:none}
+.massage-page .az-footer-text small{font:400 12px 'DM Sans',Arial,sans-serif;color:#9a8580;margin-left:7px}
+.massage-page .massage-page-header h1{margin-top:0}
+@media(max-width:760px){.massage-page .massage-page-header{padding-top:40px;padding-bottom:25px}.massage-page .massage-clean-divider{width:calc(100% - 34px);margin:13px auto}.massage-page #fussreflexzonenmassage .massage-visual img{height:auto!important}}
+/* Auch am Seitenende keine wiederholten Schmuckzeichen. */
+.massage-page .massage-disclaimer span{display:none!important}

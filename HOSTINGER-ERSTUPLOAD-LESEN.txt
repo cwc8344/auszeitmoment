@@ -1,0 +1,17 @@
+AUSZEITMOMENT – TEMPORÄRE HOSTINGER-WEBSEITE (STATISCH)
+
+Diese Datei enthält die öffentliche Website für einen ersten Upload auf normalem PHP/HTML-Webhosting.
+
+Wichtig:
+- Dies ist eine öffentliche VORSCHAU-Version. Der geschützte Adminbereich und die serverseitige Buchungsverwaltung sind NICHT enthalten und noch NICHT eingerichtet.
+- Terminanfragen: bis zur Einrichtung der Serverfunktion über WhatsApp oder SMS möglich. Kein Direktversand und keine Live-Verfügbarkeitsprüfung.
+- Bitte prüfe vor Veröffentlichung Impressum, Datenschutz und AGB auf sachliche und rechtliche Richtigkeit.
+- Prüfe außerdem Preise und Anfahrtskosten; es gab in der Ausgangsversion Widersprüche.
+
+UPLOAD
+1. Hostinger hPanel > Websites > gewünschte Website verwalten > Dateimanager > public_html
+2. Alle Inhalte der ZIP dort entpacken, sodass index.html DIREKT in public_html liegt (nicht in einem Unterordner).
+3. Die eingerichtete temporäre Hostinger-Adresse im Browser öffnen und prüfen.
+4. Später für Admin/Termine Serveranbindung mit PHP und Datenbank einrichten.
+
+Keine privaten Admin-Passwortdateien in public_html hochladen.

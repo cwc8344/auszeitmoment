@@ -1,0 +1,120 @@
+/* AUSZEITMOMENT – Farbanpassung zum gewählten, unverändert transparenten Original-Logo.
+   Neues Design: dunkles Marineblau, sanftes Lavendel, warmes Altrosa. Flache, matte Farben. */
+:root{
+ --az-navy:#203d69;--az-navy-strong:#193256;
+ --az-lavender:#a593bc;--az-lavender-dark:#78649c;
+ --az-rose:#dd9cb0;--az-rose-strong:#bb748f;
+ --az-wash:#f7f5fc;--az-rose-wash:#fbf4f8;
+ --az-ink:#343b4b;--az-subtle:#666579;--az-line:#e8e2f0;
+ --cream:#fbfaff;--paper:#ffffff;--sand:#f5f1f9;
+ --olive:#203d69;--dark:#203d69;--text:#424353;
+ --gold:#a593bc;--gold2:#dd9cb0;--border:#e8e2f0;
+ --rose:#bb748f;--plum:#203d69;--taupe:#a593bc;--sage:#a593bc;
+ --az-text:#424353;--az-muted:#666579;--az-border:#e8e2f0;--az-rose:#bb748f;--az-bg:#fbfaff;
+ color-scheme:light;
+}
+html{scroll-behavior:smooth;scroll-padding-top:102px}
+body,.appointment-page,.massage-page{background:var(--az-wash)!important;color:var(--az-ink)!important}
+body,button,input,select,textarea{accent-color:var(--az-navy)}
+h1,h2,h3,h4,.section-heading h2,.about h2,.massage-page-header h1,.massage-title-row h2,
+.subhero h1,.legal-copy h1,.flow-heading h2{color:var(--az-navy)!important}
+a{transition:color .18s ease}
+a:hover{color:var(--az-lavender-dark)}
+:focus-visible{outline:3px solid var(--az-lavender-dark)!important;outline-offset:3px}
+.site-header,.massage-page .site-header,.appointment-page .site-header{background:rgba(255,255,255,.98)!important;border-bottom:1px solid var(--az-line)!important;box-shadow:none!important}
+.site-header .brand-logo-image{width:min(245px,43vw)!important;height:auto!important;max-height:77px!important;object-fit:contain!important;object-position:left center!important}
+.site-nav,.massage-page .site-nav,.appointment-page .site-nav{color:#39465e!important}
+.site-nav a:hover,.site-nav a[aria-current=page],.massage-page .site-nav a:hover,.massage-page .site-nav a[aria-current=page],
+.appointment-page .site-nav a[aria-current=page]{color:var(--az-navy)!important}
+.site-nav a[aria-current=page]::after{background:var(--az-rose)!important}
+.menu-toggle{color:var(--az-navy)!important}
+.btn,.header-btn,.site-header .header-btn,.appointment-v2 .continue-btn,.appointment-v2 .send-inquiry,
+.booking-form button[type=submit],.primary-button,.action-primary{background:var(--az-navy)!important;color:#fff!important;border-color:var(--az-navy)!important;box-shadow:none!important;transition:background .2s ease,transform .2s ease}
+.btn:hover,.header-btn:hover,.site-header .header-btn:hover,.appointment-v2 .continue-btn:hover,.appointment-v2 .send-inquiry:hover,
+.booking-form button[type=submit]:hover,.primary-button:hover{background:var(--az-navy-strong)!important;color:white!important}
+.btn-outline{color:var(--az-navy)!important;background:transparent!important;border:1px solid var(--az-lavender)!important}
+.eyebrow,.az-local-offer span,.massage-pricing h2{color:var(--az-lavender-dark)!important}
+.hero{background:var(--az-rose-wash)!important}
+.hero-photo:before{background:linear-gradient(90deg,#fbf4f8 0%,rgba(251,244,248,.93) 8%,rgba(251,244,248,.10) 50%,transparent 75%)!important}
+.hero h1{color:var(--az-navy)!important}.hero h1 em{color:var(--az-lavender-dark)!important}
+.hero-desc,.subhero p,.section-heading p{color:var(--az-subtle)!important}
+.az-local-offer strong{background:var(--az-navy)!important;color:#fff!important;border-color:var(--az-navy)!important;box-shadow:none!important}
+.az-local-offer,.az-local-offer span{border-color:var(--az-line)!important}
+.section{background:#fff!important}
+.section:nth-of-type(even){background:var(--az-wash)!important}
+#ueber-mich,.about-section{background:var(--az-wash)!important}
+.place-card,.massage-visual,.contact-grid .booking-form,.contact-card,.massage-price-option,
+.appointment-v2 .flow-step,.appointment-v2 .booking-details-form,.appointment-summary{border-color:var(--az-line)!important}
+.place-card{background:#fff!important;box-shadow:0 10px 26px rgba(32,61,105,.06)!important}
+.place-content h3,.massage-price-option strong{color:var(--az-navy)!important}
+.wunschort-extra,.about-note,.place-content p{color:#615b75!important}
+.about-photo{box-shadow:0 12px 32px rgba(32,61,105,.08)!important}
+.about-note{border-top-color:var(--az-line)!important}
+.subhero,.subhero-light,.massage-page-header,.massage-page .massage-page-header,.appointment-v2 .booking-hero{background:var(--az-wash)!important}
+.massage-page main,.massage-page .massage-sections{background:#fff!important}
+.massage-entry:nth-child(even){background:var(--az-rose-wash)!important}
+.massage-clean-divider{background:var(--az-line)!important}
+.massage-pricing,.massage-pricing-inner,.massage-page #preise{background:var(--az-wash)!important;border-color:var(--az-line)!important}
+.massage-service-note,.massage-travel-note{color:var(--az-subtle)!important}
+.massage-pricing-inner strong,.massage-price-option strong{color:var(--az-navy)!important}
+.footer,.az-tidy-footer{background:#f1eef8!important;border-top:1px solid var(--az-line)!important;color:#3e4258!important}
+.az-footer-identity,.footer a,.az-footer-links a{color:var(--az-navy)!important}
+.az-footer-links a:hover,.footer a:hover{color:var(--az-lavender-dark)!important}
+.az-admin-footer-link{border-color:var(--az-lavender)!important;background:#fff!important}
+.legal-page,.legal-shell,.legal-content{background:var(--az-wash)!important}
+.legal-content,.legal-box,.legal-article{border-color:var(--az-line)!important}
+.contact-portrait{box-shadow:0 12px 30px rgba(32,61,105,.08)!important}
+.booking-form input,.booking-form select,.booking-form textarea,
+.appointment-v2 input,.appointment-v2 select,.appointment-v2 textarea{background:#fff!important;color:var(--az-ink)!important;border-color:#dcd5e9!important}
+.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus,
+.appointment-v2 input:focus,.appointment-v2 select:focus,.appointment-v2 textarea:focus{outline:2px solid var(--az-lavender)!important;border-color:var(--az-lavender)!important}
+/* Inline booking page has its own embedded CSS, so override it via late stylesheet. */
+.appointment-page .booking-hero,.appointment-v2 .booking-hero{background:var(--az-wash)!important}
+.appointment-v2 .flow-step,.appointment-v2 .booking-section,.appointment-v2 .booking-surface{background:#fff!important}
+.appointment-v2 .step-counter,.appointment-v2 .progress-step.is-current .step-number,
+.appointment-v2 .progress-step.is-done .step-number{background:var(--az-navy)!important;color:#fff!important;border-color:var(--az-navy)!important}
+.appointment-v2 .progress-step.is-current,.appointment-v2 .step-note strong{color:var(--az-navy)!important}
+.appointment-v2 .progress-line.is-done{background:var(--az-lavender)!important}
+.appointment-v2 .massage-kind-choices label:has(input:checked),
+.appointment-v2 .equipment-option:has(input:checked),
+.appointment-v2 .origin-card:has(input:checked){background:var(--az-rose-wash)!important;border-color:var(--az-lavender-dark)!important;box-shadow:none!important}
+.appointment-v2 .massage-kind-choices label,
+.appointment-v2 .equipment-option,
+.appointment-v2 .origin-card,.appointment-v2 .calendar-day{border-color:var(--az-line)!important}
+.appointment-v2 .calendar-day.is-selected,.appointment-v2 [data-time].selected,
+.appointment-v2 .time-chip.selected,.appointment-v2 .time-options button.selected{background:var(--az-navy)!important;border-color:var(--az-navy)!important;color:#fff!important}
+.appointment-v2 .calendar-day.is-today:not(.is-selected){color:var(--az-rose-strong)!important;border-color:var(--az-rose)!important}
+.appointment-v2 .calendar-day:hover:not(:disabled),.appointment-v2 [data-time]:hover:not(:disabled){border-color:var(--az-lavender-dark)!important}
+.appointment-v2 .appointment-summary,.appointment-v2 .summary-line{background:#fff!important;border-color:var(--az-line)!important}
+.appointment-v2 .request-total{background:var(--az-wash)!important;color:var(--az-navy)!important;border-color:var(--az-lavender)!important}
+.appointment-v2 .request-total strong,.appointment-v2 .summary-line strong,
+.appointment-v2 .route-cost{color:var(--az-navy)!important}
+.appointment-v2 .booking-validation-message{color:#983f5b!important}
+/* Buttons have no shine, and structure remains identical to original. */
+@media(max-width:760px){
+ .site-header .brand-logo-image{width:min(192px,54vw)!important;max-height:66px!important}
+ .appointment-page .site-header .brand-logo-image{width:min(192px,54vw)!important}
+ .hero-photo:before{background:linear-gradient(90deg,rgba(251,244,248,.93),rgba(251,244,248,.42))!important}
+}
+
+.az-origin-explainer{font-size:.9rem!important;color:#625a77!important;margin:8px 0 10px!important;line-height:1.55!important}
+.origin-inline{border-color:#e8e2f0!important}
+
+/* Further specificity refinements: all headings/labels use the new brand, even inside legacy subpage CSS. */
+body.massage-page h1,body.massage-page h2,body.massage-page h3,body.massage-page .massage-page-header h1,
+body.massage-page .massage-content h2,body.massage-page .massage-entry h2,
+body.massage-page .massage-title-row h2,body.massage-page .massage-title-row h2 span,
+body.massage-page .massage-pricing h2{color:#203d69!important}
+body.massage-page .massage-page-header{background:#f7f5fc!important}
+body.massage-page #preise,body.massage-page .massage-pricing-inner{background:#f7f5fc!important}
+body.massage-page .massage-price-option{background:#fbf4f8!important}
+body.appointment-page .booking-hero em,body .appointment-v2 .booking-hero em{color:#a593bc!important}
+body .appointment-v2 .equipment-option span,body .appointment-v2 .eq-icon,
+body .appointment-v2 .massage-kind-choices label,body .appointment-v2 .step-title,
+body .appointment-v2 .flow-step label{color:#3f4964!important}
+body .appointment-v2 .flow-step h3{color:#203d69!important}
+body .appointment-v2 .progress-step.is-current{color:#203d69!important}
+body .appointment-v2 .progress-step.is-current .step-number{background:#203d69!important}
+.az-origin-box{background:#f7f5fc!important;border:1px solid #e8e2f0!important;border-radius:12px!important;padding:16px 18px!important;margin:16px 0 20px!important}
+.az-origin-box strong{display:block!important;color:#203d69!important;font-size:.98rem!important}
+.az-origin-box .az-origin-explainer{margin:4px 0 0!important;color:#636078!important}

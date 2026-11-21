@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#203d69" name="theme-color"/><style>
+500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+:root{--cream:#fcfaf6;--paper:#fffdfb;--sand:#f3eee7;--olive:#274b3b;--dark:#22352e;--text:#484f49;--gold:#ae7d39;--gold2:#c19a5a;--border:#e9e1d7;--shadow:0 18px 50px rgba(54,48,35,.075)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px}body{margin:0;background:var(--cream);color:var(--text);font-family:'DM Sans',Arial,sans-serif;line-height:1.66;font-size:16px}button,input,select,textarea{font:inherit}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}p{margin:0 0 1em}h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--dark);font-weight:500;line-height:1.15}h1{font-size:clamp(3.2rem,5vw,6rem);letter-spacing:-.034em;margin:12px 0 23px}h2{font-size:clamp(2.15rem,3.3vw,3.35rem);letter-spacing:-.025em;margin:8px 0 20px}h3{font-size:1.5rem;margin:10px 0}.container{width:min(1180px,calc(100% - 52px));margin-inline:auto}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:800;color:var(--gold);display:inline-block}.muted{color:#767d75}.btn{border:0;display:inline-flex;gap:.55rem;align-items:center;justify-content:center;background:var(--gold);color:white;padding:14px 25px;border-radius:50px;font-weight:700;min-height:48px;cursor:pointer;box-shadow:0 8px 20px rgba(174,125,57,.15);transition:background .2s,transform .2s}.btn:hover{background:#96672e;transform:translateY(-2px)}.btn-outline{background:transparent;color:var(--olive);border:1px solid #b7c2b7;box-shadow:none}.btn-outline:hover{background:#f1f5ee}.btn-light{background:white;color:var(--olive)}:focus-visible{outline:3px solid #bc954d;outline-offset:4px}
+.site-header{height:82px;background:rgba(255,253,249,.96);position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(125,105,67,.09);backdrop-filter:blur(14px)}.nav-wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}.brand-mark{font-size:35px;color:var(--gold);display:flex;width:48px;height:46px;align-items:center;justify-content:center}.brand-mark svg{width:44px;height:44px;stroke:currentColor;fill:none;stroke-width:1.4}.brand-text strong{display:block;font-family:'Playfair Display',Georgia,serif;color:var(--dark);font-size:1.4rem;font-weight:500;line-height:1.15}.brand-text small{display:block;font-size:.58rem;letter-spacing:.18em;font-weight:700;color:#9b805c;margin-top:4px}.site-nav{display:flex;gap:24px;align-items:center;font-size:.92rem;font-weight:700;color:#59615a}.site-nav a:hover,.site-nav a[aria-current=page]{color:var(--gold)}.header-btn{min-height:42px;padding:10px 22px;white-space:nowrap}.menu-toggle{display:none;background:none;border:0;padding:6px;color:var(--olive);font-size:26px;cursor:pointer}
+.hero{min-height:600px;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,#fbf8f1 0%,#fbf8f1 37%,#eee6d7 100%);overflow:hidden}.hero-photo{position:absolute;right:0;top:0;width:58%;height:100%;background-image:url('assets/massage-hero.webp');background-position:center;background-size:cover;filter:saturate(.93)}.hero-photo:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#fbf8f1 0%,rgba(251,248,241,.9) 8%,rgba(251,248,241,.11) 38%,transparent 75%)}.hero .container{position:relative;z-index:1}.hero-copy{max-width:650px;padding:82px 0 92px}.hero h1{max-width:600px;color:#244737}.hero h1 em{font-style:normal;color:var(--gold)}.hero-desc{max-width:470px;font-size:1.12rem;color:#555951}.hero-actions{display:flex;gap:14px;align-items:center;margin:26px 0 42px}.trust-row{display:flex;gap:25px;flex-wrap:wrap;font-size:.86rem;font-weight:700;color:#59665c}.trust-row span{display:flex;align-items:center;gap:7px}.trust-row i{font-size:1.25rem;font-style:normal;color:var(--gold)}
+.section{padding:96px 0}.section-heading{text-align:center;max-width:785px;margin:0 auto 45px}.section-heading p{font-size:1.05rem;color:#687369}.places{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.place-card{border-radius:18px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow);border:1px solid #eae5db;transition:transform .25s,box-shadow .25s}.place-card:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(42,44,29,.13)}.place-card img{height:275px;width:100%;object-fit:cover}.place-content{padding:25px 25px 29px}.place-content .micro{font-size:.76rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--gold)}.place-content h3{font-size:1.48rem;margin:10px 0}.place-content p{font-size:.94rem;line-height:1.72;color:#70746e;margin:0}.photo-note{font-size:.79rem;text-align:center;color:#8a8b84;margin-top:20px}
+.intro-split{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:72px}.intro-image{border-radius:19px;overflow:hidden;min-height:430px;position:relative}.intro-image img{width:100%;height:430px;object-fit:cover}.intro-image:after{content:'ZU HAUSE ANKOMMEN';position:absolute;bottom:19px;right:20px;color:#fff;font-weight:700;letter-spacing:.18em;font-size:.7rem;background:rgba(40,54,41,.52);padding:10px 14px;border-radius:8px}.intro-copy{max-width:540px}.check-list{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:14px}.check-list li{display:flex;align-items:start;gap:12px}.check-list li span{width:25px;height:25px;border:1.5px solid var(--gold);border-radius:50%;color:var(--gold);display:grid;place-items:center;flex-shrink:0;font-weight:700;font-size:.85rem}.steps-section{background:#f4f0e9}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.step{padding:31px 28px;background:white;border-radius:18px;border:1px solid #e8e3d9}.step-number{font-family:'Playfair Display',serif;color:var(--gold);font-size:2rem}.step h3{font-size:1.35rem}.step p{font-size:.95rem;color:#69726a;margin:0}.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.about-panel{background:linear-gradient(145deg,#e6ebe1,#f5f0e6);padding:55px;border-radius:24px;min-height:350px;display:flex;justify-content:center;flex-direction:column}.about-panel blockquote{font:500 clamp(1.6rem,2.5vw,2.6rem)/1.4 'Playfair Display',serif;margin:10px 0 20px;color:var(--olive)}.about-panel .tiny{font-size:.78rem;letter-spacing:.11em;color:var(--gold);font-weight:800;text-transform:uppercase}.faq{max-width:850px;margin:auto}.faq details{border-bottom:1px solid #e1dfd8;padding:22px 0}.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-weight:700;color:var(--dark)}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:'+';color:var(--gold);font-size:1.5rem;font-weight:400;line-height:1}.faq details[open] summary:after{content:'–'}.faq details p{margin:16px 0 0;color:#677069}
+.cta-band{background:linear-gradient(105deg,#355b43,#25452f);padding:53px 0;color:#fff}.cta-band .container{display:flex;align-items:center;justify-content:space-between;gap:25px}.cta-band h2{color:white;margin:0 0 8px;font-size:clamp(2rem,2.8vw,3rem)}.cta-band p{margin:0;max-width:700px;color:#ecf1e8}.booking{padding:95px 0}.booking-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}.booking-copy h2{margin-top:9px}.info-line{display:flex;align-items:center;gap:11px;margin:16px 0;color:#687168}.info-line .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}.booking-form{padding:35px;background:white;border:1px solid #eae3da;box-shadow:var(--shadow);border-radius:22px;display:grid;gap:15px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.booking-form label{font-weight:700;font-size:.85rem;color:#3f5348;display:grid;gap:8px}.booking-form input,.booking-form textarea,.booking-form select{border:1px solid #ddd9d0;border-radius:10px;padding:12px;background:#fdfcf9;width:100%;color:#24382e}.booking-form textarea{resize:vertical;min-height:115px}.form-footer{display:flex;flex-wrap:wrap;align-items:center;gap:15px}.fineprint{font-size:.82rem;color:#82887e;margin:0}.form-status{font-size:.87rem;color:var(--olive);font-weight:700;min-height:16px}.footer{background:#f2eee7;padding:40px 0 24px;border-top:1px solid #e7e1d7}.footer-top{display:flex;align-items:center;justify-content:space-between;gap:22px}.footer-nav{display:flex;flex-wrap:wrap;gap:18px;font-size:.89rem}.footer-nav a:hover{color:var(--gold)}.footer-bottom{border-top:1px solid #ddd7cd;margin-top:30px;padding-top:20px;display:flex;gap:20px;justify-content:space-between;font-size:.78rem;color:#818177}.subhero{background:#f3eee5;padding:70px 0;text-align:center}.subhero h1{font-size:clamp(2.8rem,4.5vw,4.9rem)}.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.offer{padding:36px;background:#fff;border:1px solid var(--border);border-radius:15px}.offer h3{margin-top:0}.offer p{font-size:.96rem}.notice{padding:20px 25px;border-left:4px solid var(--gold);background:#fbf3e6;border-radius:5px;color:#665b40}.legal{max-width:770px;padding:70px 0}.legal p{margin-bottom:20px}
+@media(max-width:1040px){.site-nav{gap:12px}.site-nav a{font-size:.83rem}.header-btn{font-size:.8rem;padding:10px 14px}.places{gap:15px}.place-card img{height:215px}.intro-split,.about{gap:34px}}@media(max-width:760px){.container{width:min(100% - 34px,520px)}.site-header{height:72px}.brand-text strong{font-size:1.19rem}.brand-mark{width:39px}.brand-mark svg{width:37px}.brand-text small{font-size:.52rem}.menu-toggle{display:block;margin-left:auto}.header-btn{display:none}.site-nav{display:none;position:absolute;top:71px;left:0;right:0;background:#fffdf9;box-shadow:0 15px 35px rgba(0,0,0,.12);padding:22px;flex-direction:column;align-items:flex-start;gap:20px}.site-nav.open{display:flex}.site-nav a{font-size:1rem}.hero{min-height:auto;display:block;background:#fbf8f1}.hero-photo{width:100%;height:340px;position:relative;background-position:center 43%}.hero-photo:before{background:linear-gradient(0deg,#fbf8f1 0%,transparent 34%)}.hero .container{position:relative}.hero-copy{padding:0 0 46px}.hero h1{font-size:clamp(3.1rem,11vw,4.8rem);margin-top:10px}.hero-desc{font-size:1rem}.hero-actions{margin:20px 0 30px;flex-wrap:wrap}.trust-row{gap:9px 20px;font-size:.8rem}.section{padding:66px 0}.section-heading{margin-bottom:28px}.places,.steps,.offer-grid{grid-template-columns:1fr}.place-card img{height:auto;aspect-ratio:1.55;object-fit:cover}.place-content{padding:22px}.intro-split,.about,.booking-grid{grid-template-columns:1fr;gap:28px}.intro-image,.intro-image img{height:290px;min-height:290px}.intro-split .intro-copy{order:0}.steps{gap:15px}.about-panel{min-height:200px;padding:30px}.cta-band .container{flex-direction:column;align-items:flex-start}.booking{padding:64px 0}.booking-form{padding:22px}.footer-top,.footer-bottom{align-items:flex-start;flex-direction:column;gap:18px}.footer-nav{row-gap:10px}.subhero{padding:47px 0}}@media(max-width:440px){.fields{grid-template-columns:1fr}.hero-photo{height:268px}.trust-row{flex-direction:column;gap:6px}.btn{width:100%}.hero-actions{display:block}.hero-actions .btn-outline{margin-top:9px}.brand-text strong{font-size:1rem}.brand-text small{letter-spacing:.11em}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+/* Neue, eigenständige Kontakt- und Terminseiten */
+.subhero-light{background:linear-gradient(110deg,#fcfaf5,#f0eadd);border-bottom:1px solid var(--border)}
+.subhero-light p{max-width:680px;margin:0 auto;color:#657168;font-size:1.08rem}
+.contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:75px;align-items:start}
+.contact-intro{padding-top:26px;max-width:520px}
+.contact-hint{display:flex;align-items:start;gap:17px;margin-top:32px;padding:24px;background:#f0eee6;border-radius:16px}
+.contact-hint-icon{font-size:26px;color:var(--gold)}
+.contact-hint p{font-size:.91rem;margin:6px 0 12px}
+.contact-hint strong{color:var(--dark)}
+.text-arrow{color:var(--gold);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:30px}.contact-intro{padding-top:0}}
+
+.site-nav .nav-booking{display:none}@media(max-width:760px){.site-nav .nav-booking{display:block;color:var(--gold)}}
+
+/* Portrait im Über-mich-Bereich */
+.about-photo{margin:0;max-width:490px;justify-self:center;width:100%;border-radius:22px;overflow:hidden;box-shadow:0 16px 42px rgba(40,42,35,.09);background:#e6d2be}
+.about-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block}
+.about-copy .about-note{margin-top:17px;color:#64695e}
+@media(max-width:760px){.about-photo{max-width:390px}.about-photo img{aspect-ratio:4/5}}
+
+/* Zusätzliche Massage-Orte: Firmen und Events */
+
+/* Weitere Wunschorte ohne zusätzliche Bildkarten */
+.wunschort-extra{margin:28px auto 0;text-align:center;max-width:810px;color:#525f54;font-size:1rem;line-height:1.75;padding:16px 18px;border-top:1px solid #e6ded3;border-bottom:1px solid #e6ded3}
+.wunschort-extra strong{color:#244737;font-weight:700}
+
+
+/* Massagen-Seite · ruhige redaktionelle Darstellung */
+.massages-intro{text-align:center;max-width:720px;margin:0 auto 47px}
+.massages-intro h2{margin:9px 0 12px;font-size:clamp(2rem,3.2vw,3.1rem)}
+.massages-intro p{color:#6e766d;font-size:1.02rem;margin:0 auto;max-width:680px}
+.massage-offers{display:grid;gap:22px}
+.massage-offer{display:grid;grid-template-columns:230px minmax(0,1fr);background:#fffefd;border:1px solid #eae2d7;border-radius:19px;overflow:hidden;box-shadow:0 14px 42px rgba(59,55,44,.048)}
+.massage-offer-visual{min-height:250px;display:grid;place-items:center;background:linear-gradient(145deg,#edf0e7 0%,#f8f3e9 100%)}
+.massage-offer-visual svg{width:112px;height:112px;stroke:#ae874e;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.6}
+.foot-visual{background:linear-gradient(145deg,#f3efe5 0%,#f9f5ec 100%)}
+.oil-visual{background:linear-gradient(145deg,#ecece2 0%,#f5efe3 100%)}
+.massage-offer-copy{padding:29px 38px 27px;display:flex;flex-direction:column;align-items:start}
+.massage-offer-number{font-size:.69rem;font-weight:800;color:#ae7d39;letter-spacing:.16em}
+.massage-offer-copy h3{font-size:clamp(1.64rem,2.25vw,2.08rem);margin:6px 0 2px;color:#294b3a}
+.massage-subtitle{font-size:.88rem;font-weight:700;color:#977347;margin-bottom:14px}
+.massage-offer-copy p{font-size:.94rem;color:#59655d;line-height:1.72;margin:0 0 10px}
+.massage-offer-copy .massage-offer-detail{font-size:.85rem;color:#7a8076;font-style:italic;margin:4px 0 0}
+.massage-appointment{margin-top:32px;padding:33px 39px;display:flex;gap:24px;align-items:center;justify-content:space-between;background:#f2eee6;border-radius:19px}
+.massage-appointment h2{font-size:clamp(1.65rem,2.4vw,2.2rem);margin:8px 0}
+.massage-appointment p{font-size:.93rem;color:#6c766c;margin:0}
+.massage-appointment .btn{white-space:nowrap}
+.massage-small-print{font-size:.76rem;line-height:1.65;letter-spacing:.005em;color:#85877f;text-align:center;max-width:910px;margin:31px auto 0}
+@media(max-width:760px){.massage-offer{grid-template-columns:1fr}.massage-offer-visual{min-height:130px}.massage-offer-visual svg{width:85px;height:85px}.massage-offer-copy{padding:24px 24px 29px}.massage-appointment{align-items:flex-start;flex-direction:column;padding:28px 25px}.massage-appointment .btn{width:auto}.massages-intro{margin-bottom:30px}}
+@media(max-width:440px){.massage-appointment .btn{width:100%}}
+
+
+/* Nur die beiden Sendemöglichkeiten am Ende der Terminanfrage */
+.appointment-v2 .az-send-options{display:flex;gap:12px;flex-wrap:wrap;margin:17px 0 8px}
+.appointment-v2 .az-send-options .btn{display:inline-flex;align-items:center;justify-content:center;min-height:49px;padding:12px 25px;text-align:center;border-radius:12px;font-weight:700;cursor:pointer;flex:1 1 210px}
+.appointment-v2 .az-send-options .az-send-whatsapp{background:#355e50!important;border:1px solid #355e50;color:#fff!important}
+.appointment-v2 .az-send-options .az-send-whatsapp:hover{background:#284d40!important}
+@media(max-width:580px){.appointment-v2 .az-send-options{flex-direction:column}.appointment-v2 .az-send-options .btn{width:100%;flex:0 0 auto}}
+
+
+/* Additional messaging channel: preserve layout and colors of the existing booking page. */
+.appointment-v2 .az-send-options .az-channel-icon{display:block;flex:none;width:21px;height:21px}
+.appointment-v2 .az-send-options .az-send-sms{background:#576b98!important;border:1px solid #576b98;color:#fff!important}
+.appointment-v2 .az-send-options .az-send-sms:hover{background:#41557f!important}
+
+/* Zustimmung vor den beiden Versandoptionen */
+.appointment-v2 .az-agb-check{display:flex!important;align-items:flex-start;gap:13px;padding:17px 19px;border-radius:13px;background:#f9f6fb;border:1px solid #e8e0ed;color:#283d62;font-size:.91rem;font-weight:400;line-height:1.65;cursor:pointer}
+.appointment-v2 .az-agb-check input[type=checkbox]{appearance:auto;display:block;flex:none;width:20px;height:20px;margin:3px 0 0;accent-color:#263f72;cursor:pointer}
+.appointment-v2 .az-agb-check span{display:block}
+.appointment-v2 .az-agb-check a{font-weight:700;color:#304d88;text-decoration:underline;text-underline-offset:3px}
+.appointment-v2 .az-agb-check:focus-within{outline:2px solid #8d76ad;outline-offset:2px}
+.appointment-v2 .az-agb-help{margin:7px 0 0;color:#80788c;font-size:.78rem}
+</style><title>Terminanfrage | Auszeitmoment</title><meta content="Zuerst Kontaktdaten angeben, dann Behandlungsdauer wählen und anschließend einen Wunschtermin im Kalender aussuchen." name="description"/><style>
+/* Eigenständiger Buchungskalender · hell, klar und responsiv */
+.appointment-page{background:#fff;color:#494844}.appointment-page .container{max-width:1180px}.appointment-page h1,.appointment-page h2,.appointment-page h3{color:#382e28}.booking-hero{padding:69px 0 59px;background:linear-gradient(118deg,#fff 32%,#faf6f0 100%);border-bottom:1px solid #ede4da}.booking-hero h1{font-size:clamp(2.9rem,4.5vw,4.7rem);margin:8px 0 16px;line-height:1.14}.booking-hero h1 em{font-weight:400;color:#ab7d43}.booking-hero p{max-width:650px;font-size:1.04rem;color:#6e6b66;margin:0}.appointment-content{padding:52px 0 105px}.appointment-layout{display:grid;grid-template-columns:minmax(0,1fr) 315px;align-items:start;gap:33px}.appointment-primary{display:grid;gap:24px}.flow-step{background:#fff;border:1px solid #eae2d8;border-radius:20px;padding:34px 37px;box-shadow:0 12px 43px rgba(58,44,24,.045)}.flow-step.booking-hidden{display:none}.flow-step:not(.booking-hidden){animation:ap-in .28s ease-out}@keyframes ap-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}.flow-heading{display:flex;align-items:center;gap:18px}.step-counter{display:grid;place-items:center;flex-shrink:0;width:48px;height:48px;color:#aa7e49;background:#fcf6ee;border:1px solid #ecdfcb;border-radius:15px;font-weight:800;font-size:.91rem}.mini-label{font-size:.71rem;letter-spacing:.14em;font-weight:800;color:#aa7c3e;text-transform:uppercase}.flow-heading h2{font-size:clamp(1.65rem,2.25vw,2.15rem);margin:2px 0 0}.step-note{color:#77736d;font-size:.95rem;line-height:1.65;margin:18px 0 24px}.origin-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.origin-card{min-height:135px;position:relative;display:flex;flex-direction:column;gap:9px;border:1.5px solid #e7e0d8;background:#fff;border-radius:15px;padding:18px 17px 16px;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s}.origin-card:hover{border-color:#d0ae7b;background:#fffdf9}.origin-card:has(input:checked){background:#fffcf6;border-color:#b78b50;box-shadow:0 0 0 3px rgba(183,139,80,.1)}.origin-card:focus-within{outline:2px solid #bc954d;outline-offset:3px}.origin-card input{position:absolute;opacity:0;inset:0;margin:0;width:100%;height:100%;cursor:pointer}.origin-icon{font-size:1.35rem;line-height:1;color:#ad824c}.origin-card strong{display:block;color:#392e27;font-size:1rem}.origin-card small{display:block;color:#827d74;font-size:.79rem;margin-top:1px}.origin-check{display:none;position:absolute;right:13px;top:12px;border-radius:50%;width:23px;height:23px;place-items:center;background:#b78b50;color:#fff;font-size:.78rem}.origin-card:has(input:checked) .origin-check{display:grid}.calendar-and-time{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(230px,.85fr);gap:24px;align-items:start}.calendar-box{border:1px solid #ece5dc;border-radius:17px;padding:22px 20px 19px;background:#fff}.calendar-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:17px}.calendar-month{font-size:1.13rem;font-weight:800;color:#44362b;text-transform:capitalize}.calendar-controls{display:flex;gap:8px}.calendar-controls button{width:34px;height:34px;display:grid;place-items:center;border:1px solid #e5dccf;border-radius:50%;background:white;color:#5b4939;font-size:24px;line-height:1;cursor:pointer}.calendar-controls button:disabled{color:#c7beb4;cursor:default;background:#faf8f6}.calendar-weekdays,.calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.calendar-weekdays{font-size:.72rem;font-weight:700;color:#958a7a;text-align:center;margin-bottom:9px}.calendar-day{width:100%;aspect-ratio:1/1;min-height:37px;display:grid;place-items:center;border:1px solid transparent;border-radius:11px;background:transparent;color:#3e3934;font-size:.86rem;cursor:pointer;padding:0}.calendar-day:not(:disabled):hover{background:#f8eee1}.calendar-day.is-selected{background:#ae8047;color:white;border-color:#ae8047;font-weight:800}.calendar-day.is-today:not(.is-selected){border:1px solid #d1b38b}.calendar-day:disabled{color:#c7c2bc;cursor:not-allowed}.calendar-empty{min-height:37px}.calendar-legend{color:#857d72;font-size:.76rem;margin-top:15px;display:flex;gap:8px;align-items:center}.calendar-dot{width:9px;height:9px;background:#b7884d;border-radius:50%}.time-box{padding:5px 0}.time-box h3{font-size:1.55rem;line-height:1.2;margin:5px 0 11px}.time-box p{color:#817a72;font-size:.87rem;line-height:1.54;margin:0 0 16px}.time-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.time-options button,.time-flexible{border:1px solid #e8dfd5;background:#fff;color:#4d443d;border-radius:10px;padding:10px 6px;font-weight:700;font-size:.83rem;cursor:pointer;transition:all .16s}.time-options button:hover,.time-flexible:hover{border-color:#be9a6b;background:#fdf7ef}.time-options button.selected,.time-flexible.selected{background:#ad814a;color:#fff;border-color:#ad814a}.custom-time-label{display:block;font-weight:700;font-size:.76rem;color:#776c62;margin:17px 0 7px}.time-box input[type=time]{width:100%;padding:10px 13px;background:white;border:1px solid #e3dad0;border-radius:10px;color:#3b3732}.time-flexible{width:100%;margin-top:10px}.time-box .time-note{margin-top:17px;padding-top:14px;border-top:1px solid #eee5da;font-size:.76rem}.booking-details-form{display:grid;gap:17px}.booking-details-form label{font-size:.83rem;display:grid;gap:8px;font-weight:700;color:#504237}.booking-details-form label span{color:#b4864b}.booking-details-form input,.booking-details-form textarea,.booking-details-form select{width:100%;padding:12px 13px;border:1px solid #e1d8ce;background:#fff;border-radius:11px;color:#3f3832}.booking-details-form textarea{min-height:100px;resize:vertical}.booking-details-form .fields{gap:15px}.appointment-summary{padding:18px 21px;background:#faf6ef;border-radius:12px;border:1px solid #efe4d8;font-size:.88rem;line-height:1.78;color:#67594b}.appointment-summary strong{color:#342f2b}.send-inquiry{justify-self:start;background:#ae8046}.send-inquiry:hover{background:#956833}.booking-aside{position:sticky;top:108px;border:1px solid #eee7df;background:#fff;border-radius:19px;overflow:hidden;box-shadow:0 15px 43px rgba(58,44,24,.05)}.booking-aside-photo{height:185px;background-image:url('assets/wohnzimmer-kamin.webp');background-position:center;background-size:cover}.aside-inner{padding:27px 27px 29px}.aside-inner h2{font-size:1.67rem;line-height:1.2;margin:7px 0 15px}.aside-inner>p{font-size:.85rem;color:#77716b;line-height:1.75}.aside-divider{height:1px;background:#ece4d9;margin:24px 0 18px}.aside-inner .aside-small{display:flex;justify-content:space-between;gap:15px;margin-bottom:8px}.aside-inner .aside-travel{display:block;margin:18px 0 0;color:#8c7962;font-size:.79rem}.aside-inner .aside-footnote{font-size:.74rem;color:#9a8e7f;margin-top:17px}.appointment-page .eyebrow{color:#b0834f}
+@media(max-width:1050px){.appointment-layout{grid-template-columns:minmax(0,1fr) 260px;gap:20px}.flow-step{padding:28px}.calendar-and-time{grid-template-columns:1fr}.time-box{padding:5px}.time-options{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:760px){.booking-hero{padding:44px 0 37px}.booking-hero h1{font-size:clamp(2.7rem,9vw,3.9rem)}.appointment-content{padding:28px 0 65px}.appointment-layout{grid-template-columns:1fr}.booking-aside{position:static}.flow-step{padding:24px 20px}.origin-choices{grid-template-columns:1fr;gap:10px}.origin-card{min-height:72px;padding:13px 17px;display:grid;grid-template-columns:26px 1fr;align-items:center;gap:13px}.origin-card strong{font-size:.94rem}.calendar-and-time{grid-template-columns:1fr}.calendar-box{padding:17px 15px}.time-options{grid-template-columns:repeat(3,minmax(0,1fr))}.booking-aside-photo{height:160px}}@media(max-width:440px){.flow-heading{gap:12px}.step-counter{width:43px;height:43px}.calendar-weekdays,.calendar-days{gap:3px}.calendar-day{min-height:35px}.time-options{grid-template-columns:repeat(2,1fr)}.send-inquiry{width:100%}}
+
+.fee-explanation{font-size:.8rem;line-height:1.6;color:#857568;margin:-4px 0 0}.appointment-summary .total-without-travel{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:10px;margin-top:10px;border-top:1px solid #e4d6c4;font-size:1rem;color:#493a30}.appointment-summary .total-without-travel strong{font-size:1.35rem}.appointment-summary .fee-details{color:#746c63;font-size:.82rem}
+
+</style><style>
+/* Terminanfrage v2: Kundenangaben → Dauer → Kalender */
+.appointment-v2 .booking-hero{background:#fff;padding:58px 0 42px}
+.appointment-v2 .booking-hero h1{font-size:clamp(2.75rem,4.6vw,4.4rem);margin:9px 0 14px}
+.appointment-v2 .booking-hero h1 em{font-style:italic;color:#a78355;font-weight:400}
+.appointment-v2 .booking-hero p{max-width:760px}
+.appointment-v2 .appointment-content{padding-top:40px;background:linear-gradient(#fff,#fffdfb)}
+.appointment-v2 .appointment-primary form{display:grid;gap:22px}
+.appointment-v2 .flow-step{padding:35px 38px;border-color:#eee7de;border-radius:17px;box-shadow:0 11px 34px rgba(79,57,32,.034)}
+.appointment-v2 .flow-step.booking-hidden{display:none}
+.appointment-v2 .booking-details-form{display:grid;gap:19px}
+.appointment-v2 .booking-details-form .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.appointment-v2 .booking-details-form label{font-size:.88rem}
+.appointment-v2 .booking-details-form input,.appointment-v2 .booking-details-form select{height:49px;font-size:.92rem;border-radius:9px}
+.appointment-v2 .booking-details-form input:focus-visible,.appointment-v2 .booking-details-form select:focus-visible,.appointment-v2 .request-message textarea:focus-visible{outline:2px solid #b58c57;outline-offset:2px}
+.appointment-v2 .optional-label{font-size:.73rem;font-weight:400;color:#948b81}
+.appointment-v2 .origin-inline{padding:17px 19px;border:1px solid #efeadf;background:#fffefa;border-radius:12px;display:grid;gap:7px}
+.appointment-v2 .origin-inline label{font-weight:700;color:#564d44;font-size:.83rem}
+.appointment-v2 .origin-inline select{width:100%;max-width:370px;border:1px solid #e4dbce;border-radius:9px;padding:10px 13px;background:#fff;color:#484039}
+.appointment-v2 .origin-inline small{font-size:.75rem;color:#82796c;line-height:1.5}
+.appointment-v2 .step-action{display:flex;justify-content:flex-end;margin-top:4px}
+.appointment-v2 .continue-btn{border:0;cursor:pointer;background:#a9814e}
+.appointment-v2 .duration-choices{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.appointment-v2 .duration-card{position:relative;display:flex;align-items:center;gap:12px;padding:26px 22px;border:1.5px solid #e7e0d5;border-radius:14px;min-height:128px;background:#fff;cursor:pointer;transition:border-color .2s,background .2s;overflow:hidden}
+.appointment-v2 .duration-card:hover{border-color:#c8a777}
+.appointment-v2 .duration-card:has(input:checked){background:#fffaf3;border-color:#b18a52;box-shadow:0 0 0 3px rgba(177,138,82,.07)}
+.appointment-v2 .duration-card:focus-within{outline:2px solid #b18a52;outline-offset:2px}
+.appointment-v2 .duration-card input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0}
+.appointment-v2 .duration-main{display:block;flex:1}.appointment-v2 .duration-main strong{font-family:Georgia,serif;color:#392f2a;display:block;font-size:1.45rem;font-weight:500}.appointment-v2 .duration-main small{display:block;font-size:.79rem;color:#8a8075;margin-top:8px}
+.appointment-v2 .duration-price{font-weight:700;color:#9e7845;font-size:1.42rem;white-space:nowrap;margin-right:6px}.appointment-v2 .duration-check{display:none;position:absolute;right:10px;top:9px;color:#a9814e}
+.appointment-v2 .duration-card:has(input:checked) .duration-check{display:block}
+.appointment-v2 .step-tip{font-size:.82rem;color:#877c70;margin:16px 0 0}
+.appointment-v2 .progress-overview{display:flex;align-items:center;gap:12px;margin-top:33px;flex-wrap:wrap}
+.appointment-v2 .progress-item{display:flex;align-items:center;gap:8px;color:#9b948b;font-size:.83rem;font-weight:650}.appointment-v2 .progress-item b{display:grid;place-items:center;font-size:.69rem;border:1px solid #ddd2c6;border-radius:50%;width:28px;height:28px}
+.appointment-v2 .progress-item.is-current,.appointment-v2 .progress-item.is-done{color:#866038}.appointment-v2 .progress-item.is-current b{background:#ae844d;color:#fff;border-color:#ae844d}.appointment-v2 .progress-item.is-done b{background:#f7ecda;color:#9b7240}
+.appointment-v2 .progress-overview i{display:block;width:28px;height:1px;background:#ded3c8}
+.appointment-v2 .request-end{margin-top:27px;border-top:1px solid #ece5dc;padding-top:25px;display:grid;gap:16px}
+.appointment-v2 .request-end.booking-hidden{display:none}
+.appointment-v2 .request-message{display:grid;gap:9px;font-weight:700;color:#59493e;font-size:.85rem}
+.appointment-v2 .request-message textarea{border:1px solid #e4dbd0;padding:14px;border-radius:10px;resize:vertical;width:100%}
+.appointment-v2 .appointment-summary{border-radius:11px;background:#fbf8f4;font-size:.87rem}
+.appointment-v2 .request-total{display:flex;justify-content:space-between;gap:15px;padding-top:10px;margin-top:10px;border-top:1px solid #e8dcd0}
+.appointment-v2 .request-total strong{font-size:1.3rem}
+.appointment-v2 .fineprint{font-size:.76rem;color:#8e8378;line-height:1.6;margin:0}
+.appointment-v2 .aside-inner h2{font-size:1.82rem}
+@media(max-width:1050px){.appointment-v2 .duration-choices{grid-template-columns:1fr}}
+@media(max-width:760px){.appointment-v2 .booking-hero{padding:41px 0 35px}.appointment-v2 .appointment-content{padding-top:25px}.appointment-v2 .flow-step{padding:25px 21px}.appointment-v2 .booking-details-form .fields{grid-template-columns:1fr}.appointment-v2 .duration-choices{grid-template-columns:1fr}.appointment-v2 .duration-card{min-height:110px}.appointment-v2 .progress-overview{gap:7px}.appointment-v2 .progress-overview i{width:11px}.appointment-v2 .progress-item{font-size:.72rem}.appointment-v2 .progress-item b{width:25px;height:25px;font-size:.62rem}.appointment-v2 .step-action .btn{width:100%}}
+@media(max-width:420px){.appointment-v2 .progress-item{font-size:.66rem}.appointment-v2 .progress-item{gap:5px}.appointment-v2 .progress-overview i{width:8px}}
+/* Form labels: keep required indicator and optional notation on the same line */
+.appointment-v2 .booking-details-form label{display:block}
+.appointment-v2 .booking-details-form label input{display:block;margin-top:9px}
+.appointment-v2 .booking-details-form .optional-label{color:#93887b;font-size:.73rem;font-weight:400}
+.site-header .header-btn{background:#a9814e!important;color:#fff!important;box-shadow:0 6px 15px rgba(133,95,45,.12)}
+
+.booking-validation-message{color:#8e3e30;font-weight:700;background:#fff3ee;border:1px solid #ead5c9;border-radius:10px;padding:11px 13px;margin:4px 0}.booking-copy{border:1px solid #b68b52;color:#704b29;background:#fff;border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer;margin-top:10px}.booking-copy:hover{background:#fcf6ef}.booking-validation-message[hidden],.booking-copy[hidden]{display:none!important}
+
+</style><style>
+
+/* Fahrtstrecke & Behandlungsanzahl: ruhige, klar strukturierte Buchung */
+.appointment-v2 .booking-hero{background:linear-gradient(120deg,#fff 65%,#fbfaf8 100%)}
+.appointment-v2 .origin-inline{background:#fff;border-color:#e7ded2}
+.route-area{margin-top:-6px;display:grid;gap:10px}
+.route-button{width:100%;padding:15px 20px;background:#f7f1e8;color:#6d4a29;border:1px solid #ddcbb7;border-radius:12px;text-align:center;font-weight:700;cursor:pointer;transition:.2s}
+.route-button:hover:not(:disabled){background:#eee2d2;border-color:#bc9b6c}
+.route-button:disabled{opacity:.7;cursor:wait}
+.route-privacy{color:#80776c;font-size:.76rem;margin:0;line-height:1.55}
+.route-privacy a{text-decoration:underline;text-underline-offset:3px}
+.route-result{padding:17px 19px;border-radius:12px;border:1px solid #e7e0d6;background:#fff;font-size:.9rem}
+.route-result[hidden]{display:none}
+.route-result.is-success{border-color:#b8c7b2;background:#f7faf6}
+.route-result.is-error{border-color:#dec6b6;background:#fff8f4}
+.route-result.is-pending{border-color:#e0d2bb;background:#fffefa}
+.route-result strong{display:block;font-size:.95rem;color:#413b32;margin-bottom:3px}
+.route-result p{margin:5px 0;line-height:1.55}
+.route-result .route-cost{font-size:1.22rem;color:#6f512f;font-weight:800}
+.route-result .route-meta{font-size:.78rem;color:#776e63}
+.route-result .route-choose{border:1px solid #ded4c8;background:#fff;border-radius:9px;padding:9px 12px;width:100%;font-size:.87rem;margin-top:8px}
+.route-error-text{color:#905040}
+.quantity-panel{margin-top:18px;border:1px solid #e5ded4;border-radius:14px;background:#fff;padding:19px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.quantity-panel label{display:block;color:#493a2f;font-weight:750;font-size:.95rem}
+.quantity-panel small{display:block;font-size:.78rem;color:#877d71;margin-top:5px;line-height:1.5}
+.quantity-picker{display:flex;align-items:center;flex-shrink:0;border:1px solid #ddd3c5;border-radius:11px;overflow:hidden}
+.quantity-picker button{height:46px;width:43px;background:#fff;border:0;color:#8b6536;font-size:1.35rem;cursor:pointer}
+.quantity-picker button:hover{background:#faf3e8}
+.quantity-picker input{width:47px;height:46px;border:0;text-align:center;background:#fff;color:#362e26;font-weight:700;appearance:textfield;outline:none}
+.quantity-picker input::-webkit-inner-spin-button,.quantity-picker input::-webkit-outer-spin-button{appearance:none;margin:0}
+.route-hint{font-size:.78rem;color:#746e63;margin:6px 0 0}
+.price-calculated{color:#6e583d;font-size:.83rem;line-height:1.55}
+@media(max-width:580px){.quantity-panel{align-items:flex-start;flex-direction:column}.quantity-picker{width:100%;justify-content:space-between}.quantity-picker input{flex:1}}
+
+</style><style>
+
+/* Helle, reduzierte Buchungsmaske – Preise erst am Schluss */
+.appointment-v2 .booking-hero{padding:48px 0 32px;background:#fff}
+.appointment-v2 .appointment-content{background:#fff;padding:26px 0 85px}
+.appointment-v2 .appointment-layout{display:block;max-width:930px;margin-inline:auto}
+.appointment-v2 .appointment-primary{min-width:0}
+.appointment-v2 .flow-step{padding:40px 45px;background:#fff;border:1px solid #ece7e0;border-radius:18px;box-shadow:0 12px 42px rgba(51,41,29,.045)}
+.appointment-v2 .flow-heading{margin-bottom:24px}
+.appointment-v2 .booking-details-form{gap:22px}
+.appointment-v2 .origin-inline{background:#fff;padding:0;border:0;gap:9px}
+.appointment-v2 .origin-inline select{max-width:none;height:50px}
+.appointment-v2 .duration-card{min-height:103px}
+.appointment-v2 .duration-main strong{font-size:1.35rem}
+.appointment-v2 .progress-overview{margin-top:26px}
+.appointment-v2 .route-area{margin-top:-3px}
+.appointment-v2 .route-button{background:#fff;border:1px solid #e1d6c6;color:#6e523b;padding:12px 16px;font-weight:600}
+.appointment-v2 .route-result{background:#fff;border:0;border-left:3px solid #b8996c;padding:6px 14px;font-size:.8rem}
+.appointment-v2 .route-result p{display:none}
+.appointment-v2 .route-result.is-error{border-color:#c68d75}
+.appointment-v2 .equipment-section,.appointment-v2 .access-section{border-top:1px solid #eee9e2;padding-top:24px;margin-top:3px}
+.appointment-v2 .equipment-section h3,.appointment-v2 .access-section h3{font-family:Georgia,serif;color:#3c352f;font-size:1.24rem;font-weight:500;margin:0 0 17px}
+.appointment-v2 .equipment-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.appointment-v2 .equipment-option{border:1px solid #e8e0d8;background:#fff;min-height:91px;padding:18px 12px;border-radius:12px;display:flex!important;flex-direction:column;align-items:flex-start;justify-content:space-between;position:relative;cursor:pointer;gap:8px;font-weight:600!important;color:#544639;font-size:.86rem!important;transition:border-color .2s,background .2s}
+.appointment-v2 .equipment-option:has(input:checked){border-color:#ba9463;background:#fffaf3}
+.appointment-v2 .equipment-option input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.appointment-v2 .equipment-option:focus-within{outline:2px solid #b58c57;outline-offset:2px}
+.appointment-v2 .eq-icon{color:#aa8356;font-size:1.3rem;font-weight:400}
+.appointment-v2 .eq-check{position:absolute;right:14px;top:10px;color:#ae844d;opacity:0}
+.appointment-v2 .equipment-option:has(input:checked) .eq-check{opacity:1}
+.appointment-v2 .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end}
+.appointment-v2 .lift-field{border:0;margin:0;padding:0;min-width:0}
+.appointment-v2 .lift-field legend,.appointment-v2 .floor-field{font-size:.87rem;font-weight:700;color:#564a40;margin:0 0 10px}
+.appointment-v2 .lift-options{display:flex;gap:11px}
+.appointment-v2 .lift-options label{border:1px solid #e6dfd6;border-radius:9px;padding:13px 18px;display:flex;align-items:center;gap:8px;cursor:pointer;flex:1}
+.appointment-v2 .lift-options label:has(input:checked){border-color:#b78d56;background:#fffaf3}
+.appointment-v2 .lift-options input{accent-color:#a47a48}
+.appointment-v2 .floor-field select{display:block;margin-top:10px;height:48px;border:1px solid #dfd7cb;border-radius:9px;padding:0 12px;background:#fff;color:#3c352f;width:100%;font-size:.91rem}
+.appointment-v2 .appointment-summary{padding:25px 26px;background:#fbfaf8;border:1px solid #e8e1d8;border-radius:13px;display:grid;gap:11px}
+.appointment-v2 .appointment-summary>strong{font-family:Georgia,serif;font-size:1.4rem;font-weight:500;color:#3e332d;margin-bottom:6px}
+.appointment-v2 .summary-line{display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-size:.9rem;color:#675b50}
+.appointment-v2 .summary-line span:last-child{font-weight:650;color:#433a30;text-align:right}
+.appointment-v2 .request-total{font-size:1rem;padding-top:17px;margin-top:7px;border-top:1px solid #ddd2c6}
+.appointment-v2 .request-total strong{font-family:Georgia,serif;font-size:1.7rem;color:#5c432b;font-weight:500}
+.appointment-v2 .send-inquiry{justify-content:center;padding:18px;border-radius:10px}
+.appointment-v2 .appointment-summary[hidden]{display:none}
+@media(max-width:700px){.appointment-v2 .flow-step{padding:25px 20px}.appointment-v2 .equipment-options{grid-template-columns:1fr}.appointment-v2 .equipment-option{min-height:61px;flex-direction:row;justify-content:flex-start;align-items:center;gap:17px}.appointment-v2 .access-grid{grid-template-columns:1fr}.appointment-v2 .progress-overview{gap:5px}.appointment-v2 .progress-item{font-size:.69rem}}
+
+.appointment-v2 .lift-options input{width:17px!important;height:17px!important;max-width:17px;flex:none;accent-color:#a47a48}
+
+/* Fahrstrecke erscheint ausschließlich im letzten Preiskasten. */
+.appointment-v2 .access-section[hidden]{display:none!important}
+.appointment-v2 .booking-status{color:#6b5b49;font-size:.85rem;margin:0}
+
+/* Personenanzahl direkt bei der Behandlungsdauer, im bestehenden Stil */
+.appointment-v2 .az-persons-field{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fff;border:1px solid #e7d9e5;border-radius:13px;padding:16px 22px;margin:0 0 19px}
+.appointment-v2 .az-persons-field label{color:#263f6f;font-weight:650;font-size:1rem}
+.appointment-v2 .az-persons-field select{height:46px;min-width:158px;padding:0 36px 0 14px;border-radius:9px;border:1px solid #d9cade;background:#fff;color:#263f6f;font-size:.98rem;font-weight:600;cursor:pointer}
+@media(max-width:590px){.appointment-v2 .az-persons-field{padding:14px;gap:14px}.appointment-v2 .az-persons-field select{min-width:136px}}
+/* Jeweilige Anzahl für 60 und 90 Minuten, beide Dauern kombinierbar */
+.appointment-v2 .duration-quantity-list{display:grid;gap:15px}
+.appointment-v2 .duration-quantity-row{display:flex;justify-content:space-between;align-items:center;gap:22px;border:1px solid #e8e1d8;border-radius:15px;padding:22px 24px;background:#fff}
+.appointment-v2 .duration-quantity-label{display:flex;flex-direction:column;gap:6px}
+.appointment-v2 .duration-quantity-label strong{font:500 1.5rem Georgia,serif;color:#49382e}
+.appointment-v2 .duration-quantity-label span{font-size:.8rem;color:#82766c}
+.appointment-v2 .duration-quantity-control{display:flex;align-items:center;gap:5px;flex:none;justify-content:center;border:1px solid #dfd5c7;border-radius:11px;padding:4px;background:#fff}
+.appointment-v2 .duration-quantity-control button{display:grid;place-items:center;border:0;background:#faf6f0;color:#745637;border-radius:7px;width:40px;height:40px;font-size:1.3rem;cursor:pointer}
+.appointment-v2 .duration-quantity-control button:hover{background:#f1e8dc}
+.appointment-v2 .duration-quantity-control input{width:45px;height:44px;border:0!important;box-shadow:none!important;background:#fff;text-align:center;font-size:1.18rem;color:#44352c;font-weight:700;margin:0;-moz-appearance:textfield;appearance:textfield}
+.appointment-v2 .duration-quantity-control input::-webkit-outer-spin-button,.appointment-v2 .duration-quantity-control input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.appointment-v2 .duration-quantity-control :focus-visible{outline:2px solid #ac8556;outline-offset:2px}
+@media(max-width:590px){.appointment-v2 .duration-quantity-row{padding:18px 15px;gap:10px}.appointment-v2 .duration-quantity-label strong{font-size:1.23rem}.appointment-v2 .duration-quantity-control button{width:33px;height:36px}.appointment-v2 .duration-quantity-control input{width:35px;height:36px}}
+
+</style><link href="brand.css" rel="stylesheet"/><script src="site-config.js"></script><script src="route-config.js"></script><link href="assets/favicon.png" rel="icon" type="image/png"/><link href="elegant.css" rel="stylesheet"/><link href="rechtliches.css" rel="stylesheet"/><style>
+/* Buchungsabschluss: sichtbar, verständlich, ohne zusätzliche versteckte Bestätigung. */
+.appointment-v2 .massage-kind-box{margin-bottom:23px;padding:20px;background:#fffaf8;border:1px solid #eadbd6;border-radius:14px}
+.appointment-v2 .massage-kind-box h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:1.8rem;color:#754a53;margin:0 0 5px}
+.appointment-v2 .massage-kind-box p{font-size:.85rem;color:#786d68;margin:0 0 13px}
+.appointment-v2 .massage-kind-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.appointment-v2 .massage-kind-choices label{display:flex;align-items:center;gap:9px;padding:12px 11px;border:1px solid #e7d9d3;border-radius:10px;background:#fff;font-size:.8rem;line-height:1.4;cursor:pointer;color:#654e4d}
+.appointment-v2 .massage-kind-choices label:has(input:checked){background:#f8eae7;border-color:#ac737a}
+.appointment-v2 .massage-kind-choices input{flex:none;accent-color:#a2676c;width:17px;height:17px}
+.appointment-v2 .az-booking-guide{padding:12px 15px;background:#f9f1ed;color:#69595a;border-radius:10px;font-size:.89rem;line-height:1.6;margin:9px 0 20px}
+.appointment-v2 .az-review-action{margin:22px 0 8px;text-align:right}
+.appointment-v2 .az-review-button{border:1px solid #ad6f75;border-radius:30px;background:#fff9f6;color:#8c525b;font-weight:700;font-size:.91rem;padding:13px 23px;cursor:pointer}
+.appointment-v2 .az-review-button:hover{background:#f9eae6}
+.appointment-v2 .appointment-summary{display:grid;gap:10px;max-width:100%}
+.appointment-v2 .request-end:not(.booking-hidden){display:grid;gap:14px}
+.appointment-v2 .request-end .send-inquiry{display:flex;width:100%;min-height:57px;font-size:1.06rem;cursor:pointer;box-shadow:0 8px 24px rgba(128,78,84,.11)!important}
+.appointment-v2 .az-summary-info{margin:0;padding:10px 13px;background:#fff;color:#745b5b;border:1px solid #efdfd8;border-radius:9px;font-size:.82rem;line-height:1.6}
+.appointment-v2 .az-booking-send-note{font-size:.82rem;color:#736562;line-height:1.6;margin:-2px 0 0;text-align:center}
+.appointment-v2 #appointment-submit-status:not(:empty){padding:10px 12px;background:#fff1eb;border:1px solid #ead3c9;border-radius:8px}
+@media(max-width:760px){.appointment-v2 .massage-kind-choices{grid-template-columns:1fr}.appointment-v2 .az-review-button{width:100%}.appointment-v2 .massage-kind-box{padding:16px}.appointment-v2 .request-end .send-inquiry{width:100%}}
+@media(max-width:590px){
+ .appointment-v2 .duration-quantity-row{width:100%;min-width:0;box-sizing:border-box}
+ .appointment-v2 .duration-quantity-control{width:100%;max-width:100%;min-width:0;flex:0 1 auto;box-sizing:border-box;justify-content:space-between}
+ .appointment-v2 .duration-quantity-control input{flex:0 0 50px!important;width:50px!important;min-width:0!important}
+ .appointment-v2 .duration-quantity-control button{flex:0 0 40px}
+ .appointment-v2 .flow-step{min-width:0}
+}
+</style><link href="aufgeraeumt.css" rel="stylesheet"/><link href="farbwelt-blau-lavendel-rosa.css" rel="stylesheet"/>
+<link href="logo-2x.css" rel="stylesheet"/></head><body><header class="site-header"><div class="container nav-wrap">
+<a aria-label="Auszeitmoment – Startseite" class="brand" href="index.html"><img alt="Auszeitmoment – Mobile Massage" class="brand-logo-image" height="649" src="assets/auszeitmoment-logo.png" width="1228"/></a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Menü öffnen" class="menu-toggle" type="button">☰</button>
+<nav aria-label="Hauptnavigation" class="site-nav" id="site-nav"><a data-nav="start" href="index.html">Startseite</a><a data-nav="massage" href="massagen.html">Angebote</a><a aria-current="page" data-nav="termin" href="termin.html">Terminanfrage</a><a data-nav="kontakt" href="kontakt.html">Kontakt</a></nav>
+<a class="btn header-btn" href="termin.html">Termin anfragen ↗</a>
+</div></header>
+<main class="appointment-page appointment-v2">
+<section class="booking-hero">
+<div class="container">
+
+<h1>Deinen Termin <em>anfragen.</em></h1>
+<div aria-label="Drei Schritte zur Terminanfrage" class="progress-overview">
+<span class="progress-item is-current" id="progress-1"><b>01</b> Deine Angaben</span>
+<i></i><span class="progress-item" id="progress-2"><b>02</b> Behandlungsdauer</span>
+<i></i><span class="progress-item" id="progress-3"><b>03</b> Wunschdatum</span>
+</div>
+</div>
+</section>
+<section class="appointment-content">
+<div class="container appointment-layout">
+<div class="appointment-primary">
+<form id="appointment-request-form" novalidate="">
+<section aria-labelledby="customer-title" class="flow-step" id="customer-step">
+<div class="flow-heading"><span class="step-counter">01</span><div><h2 id="customer-title">Deine Angaben</h2></div></div>
+<div class="booking-details-form">
+<div class="fields">
+<label for="client-name">Vor- und Nachname <span>*</span><input autocomplete="name" id="client-name" name="name" placeholder="Dein Name" required="" type="text"/></label>
+<label for="client-email">E-Mail-Adresse <span>*</span><input autocomplete="email" id="client-email" name="email" placeholder="name@beispiel.de" required="" type="email"/></label>
+</div>
+<div class="fields">
+<label for="client-phone">Telefonnummer <span class="optional-label">optional</span><input autocomplete="tel" id="client-phone" name="phone" placeholder="Für Rückfragen" type="tel"/></label>
+<label for="client-zip">Postleitzahl und Ort <span>*</span><input autocomplete="postal-code" id="client-zip" minlength="5" name="city" placeholder="z. B. 23552 Lübeck" required=""/></label>
+</div>
+<label for="client-street">Straße und Hausnummer am Behandlungsort <span>*</span><input autocomplete="street-address" id="client-street" name="street" placeholder="Musterstraße 12" required=""/></label>
+<div class="origin-inline"><label for="start-point">Anfahrt ab 22869 Schenefeld</label><select id="start-point" name="origin" aria-label="Startort der Anfahrt"><option value="schenefeld">22869 Schenefeld (10 km inklusive)</option></select><p class="az-origin-explainer">10 km Anfahrt inklusive. Danach 0,80 € je weiterem Kilometer der einfachen Hinfahrt. Die Ausstattung ist ohne Aufpreis enthalten.</p></div>
+<div class="equipment-section">
+<h3>Welche Ausstattung benötigst du?</h3>
+<div class="equipment-options">
+<label class="equipment-option"><input id="need-table" name="table" type="checkbox" value="ja"/><span>Massageliege</span></label>
+
+<label class="equipment-option"><input id="need-linens" name="linens" type="checkbox" value="ja"/><span>Handtücher &amp; Auflagen (Zubehör)</span></label>
+</div>
+</div>
+<p class="booking-validation-message" hidden="" id="booking-validation-message" role="alert"></p><div class="step-action"><button class="btn continue-btn" id="continue-to-duration" type="button">Weiter zur Behandlungsdauer →</button></div>
+</div>
+</section>
+<section aria-labelledby="duration-title" class="flow-step booking-hidden" hidden="" id="duration-step">
+<div class="flow-heading"><span class="step-counter">02</span><div><h2 id="duration-title">Behandlungsdauer wählen</h2></div></div>
+<div class="massage-kind-box">
+<h3>Welche Massagebehandlung möchtest du?</h3>
+
+<div class="massage-kind-choices">
+<label><input name="massage-kind" type="checkbox" value="Chinesische Druckpunktmassage"/><span>Chinesische Druckpunktmassage</span></label>
+<label><input name="massage-kind" type="checkbox" value="Fußreflexzonenmassage"/><span>Fußreflexzonenmassage</span></label>
+<label><input name="massage-kind" type="checkbox" value="Schwedische Massage"/><span>Schwedische Massage</span></label>
+</div>
+</div>
+<div class="az-persons-field"><label for="persons-count">Anzahl der Personen</label><select id="persons-count" name="persons" aria-label="Anzahl der Personen"><option value="1">1 Person</option><option value="2">2 Personen</option><option value="3">3 Personen</option><option value="4">4 Personen</option><option value="5">5 Personen</option><option value="6">6 Personen</option></select></div>
+<p class="az-booking-guide">Bitte wähle die gewünschte Anzahl pro Behandlungsdauer aus. Beide Behandlungszeiten lassen sich kombinieren.</p>
+<div aria-label="Anzahl je Behandlungsdauer" class="duration-quantity-list">
+<div class="duration-quantity-row">
+<div class="duration-quantity-label"><strong>60 Minuten</strong><span>100 € pro Behandlung</span></div>
+<div class="quantity-picker duration-quantity-control">
+<button aria-label="60 Minuten: Anzahl verringern" id="count-60-minus" type="button">−</button>
+<input aria-label="Anzahl Behandlungen à 60 Minuten" id="count-60" inputmode="numeric" max="6" min="0" name="count60" type="number" value="0"/>
+<button aria-label="60 Minuten: Anzahl erhöhen" id="count-60-plus" type="button">+</button>
+</div>
+</div>
+<div class="duration-quantity-row">
+<div class="duration-quantity-label"><strong>90 Minuten</strong><span>140 € pro Behandlung</span></div>
+<div class="quantity-picker duration-quantity-control">
+<button aria-label="90 Minuten: Anzahl verringern" id="count-90-minus" type="button">−</button>
+<input aria-label="Anzahl Behandlungen à 90 Minuten" id="count-90" inputmode="numeric" max="6" min="0" name="count90" type="number" value="0"/>
+<button aria-label="90 Minuten: Anzahl erhöhen" id="count-90-plus" type="button">+</button>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="calendar-title" class="flow-step booking-hidden" hidden="" id="calendar-step">
+<div class="flow-heading"><span class="step-counter">03</span><div><h2 id="calendar-title">Wunschtermin aussuchen</h2></div></div>
+<p class="az-booking-guide">Wähle dein Wunschdatum und die Uhrzeit. Die Gesamtkosten stehen unten.</p>
+<div class="calendar-and-time">
+<div aria-label="Kalender für Wunschtermin" class="calendar-box">
+<div class="calendar-top"><div aria-live="polite" class="calendar-month" id="calendar-month"></div><div class="calendar-controls"><button aria-label="Vorheriger Monat" id="prev-month" type="button">‹</button><button aria-label="Nächster Monat" id="next-month" type="button">›</button></div></div>
+<div aria-hidden="true" class="calendar-weekdays"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
+<div aria-label="Tage im Kalender" class="calendar-days" id="calendar-days" role="group"></div>
+</div>
+<div class="time-box"><span class="mini-label">Wunschzeit</span><h3>Wann passt es dir?</h3>
+<div aria-label="Wunschzeit" class="time-options" role="group"><button data-time="09:00" type="button">09:00</button><button data-time="11:00" type="button">11:00</button><button data-time="13:00" type="button">13:00</button><button data-time="15:00" type="button">15:00</button><button data-time="17:00" type="button">17:00</button><button data-time="19:00" type="button">19:00</button></div>
+<label class="custom-time-label" for="custom-time">Andere Uhrzeit</label><input id="custom-time" step="60" type="time"/><button class="time-flexible" data-time="Zeitlich flexibel" type="button">Zeitlich flexibel</button>
+</div>
+</div>
+<div class="az-review-action"><button class="az-review-button" id="show-costs" type="button">Zur Kostenübersicht ↓</button></div>
+<div class="request-end booking-hidden" hidden="" id="request-end">
+<label class="request-message" for="request-message">Weitere Wünsche <span class="optional-label">optional</span><textarea id="request-message" name="message" placeholder="Zum Beispiel bevorzugte Uhrzeit oder Hinweise …" rows="3"></textarea></label>
+<div aria-live="polite" class="appointment-summary" id="appointment-summary"></div>
+<label class="az-agb-check" for="agb-accepted">
+<input id="agb-accepted" type="checkbox" name="agb_accepted" required/>
+<span>Ich habe die <a href="agb.html" target="_blank" rel="noopener noreferrer">AGB</a> gelesen und akzeptiere sie. Die <a href="datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutzhinweise</a> habe ich zur Kenntnis genommen.</span>
+</label>
+
+<div class="az-send-options" role="group" aria-label="Anfrage übermitteln">
+<button class="btn send-inquiry" id="send-booking-email" type="button" disabled="disabled" hidden="hidden" style="display:none">Terminanfrage direkt senden</button>
+<button class="btn az-send-whatsapp" id="send-booking-whatsapp" type="button"><svg class="az-channel-icon" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 11.7a8.2 8.2 0 0 1-12 7.2L3.6 20l1.2-4.4a8.2 8.2 0 1 1 15.4-3.9Z"/><path d="M9.1 7.9c-.3-.6-.6-.6-.9-.6-.4 0-.9.5-1 1.1-.4 2.1 2 5.5 4.8 6.8 1.5.7 3.2 1.1 4.2.2.4-.4.9-1.3.6-1.6l-2-1c-.3-.2-.5-.1-.7.2l-.8.9c-.2.2-.4.3-.7.1-1.2-.5-2.4-1.6-3-2.8-.1-.3 0-.4.2-.6l.5-.5c.2-.2.2-.4.1-.6L9.1 7.9Z" stroke-width="1.25"/></svg><span>Per WhatsApp senden</span></button>
+<button class="btn az-send-sms" id="send-booking-sms" type="button"><svg class="az-channel-icon" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="m7.5 18-1 3 5-3"/><path d="M7 9h10M7 13h7"/></svg><span>Per SMS senden</span></button>
+</div>
+<p class="az-terms-note">Bis die direkte Terminanfrage eingerichtet ist, sende deine Anfrage bitte per WhatsApp oder SMS.</p>
+<p class="az-terms-note">Deine Anfrage ist unverbindlich. Ein Termin kommt erst nach ausdrücklicher Bestätigung zustande. <a href="agb.html">AGB</a> · <a href="datenschutz.html">Datenschutz</a>.</p><p aria-live="polite" class="booking-status" id="appointment-submit-status" role="status"></p>
+<button class="booking-copy" hidden="" id="copy-booking" type="button">Anfragezusammenfassung kopieren</button>
+</div>
+</section>
+</form>
+</div>
+</div>
+</section>
+</main><footer class="footer az-tidy-footer"><div class="container"><div class="az-footer-bar"><div class="az-footer-identity">Auszeitmoment <span>· Mobile Massage</span></div><nav aria-label="Rechtliches" class="az-footer-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></nav></div><div class="az-footer-bottom"><p class="az-footer-copy">© <span class="js-year">2026</span> Auszeitmoment</p></div></div></footer><script>
+(()=>{
+  const toggle=document.querySelector('.menu-toggle');
+  const nav=document.querySelector('.site-nav');
+  toggle?.addEventListener('click',()=>{
+    const opened=nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',String(opened));
+    toggle.setAttribute('aria-label',opened?'Menü schließen':'Menü öffnen');
+    toggle.textContent=opened?'×':'☰';
+  });
+  nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    nav.classList.remove('open');
+    toggle?.setAttribute('aria-expanded','false');
+    if(toggle)toggle.textContent='☰';
+  }));
+  document.querySelectorAll('.js-year').forEach(x=>x.textContent=new Date().getFullYear());
+  // Geschäftsadresse für direkte E-Mail-Anfragen:
+  const contactEmail='auszeitmoment.info@gmail.com';
+  const draft=(subject,body,statusElement)=>{
+    const status=document.getElementById(statusElement);
+    if(status)status.textContent=contactEmail
+      ? 'Dein E-Mail-Programm wird geöffnet. Bitte sende die Nachricht dort ab.'
+      : 'Dein E-Mail-Programm wird geöffnet. Bitte ergänze dort die Empfängeradresse und versende die Nachricht selbst.';
+    window.location.href='mailto:'+contactEmail+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  };
+  const booking=document.getElementById('booking-form');
+  booking?.addEventListener('submit',e=>{
+    e.preventDefault();if(!booking.reportValidity())return;
+    const fd=new FormData(booking);
+    const name=fd.get('name')||'',email=fd.get('email')||'',duration=fd.get('duration')||'Noch offen';
+    const date=fd.get('date')||'Nach Absprache',city=fd.get('location')||'',message=fd.get('message')||'Keine zusätzliche Nachricht';
+    const body=`Hallo,
+
+ich möchte eine mobile Massagebehandlung anfragen.
+
+Name: ${name}
+E-Mail: ${email}
+Dauer: ${duration}
+Wunschtag: ${date}
+Ort: ${city}
+Nachricht: ${message}
+
+Viele Grüße
+${name}`;
+    draft('Auszeitmoment – Terminanfrage – '+name,body,'form-status');
+  });
+  const contact=document.getElementById('contact-form');
+  contact?.addEventListener('submit',e=>{
+    e.preventDefault();if(!contact.reportValidity())return;
+    const fd=new FormData(contact);
+    const name=fd.get('name')||'',email=fd.get('email')||'',subject=fd.get('subject')||'Frage zur mobilen Massage';
+    const message=fd.get('message')||'';
+    const body=`Hallo,
+
+${message}
+
+Viele Grüße
+${name}
+E-Mail für Rückfragen: ${email}`;
+    draft('Auszeitmoment – '+subject,body,'contact-status');
+  });
+})();
+</script><script>
+// Vor Live-Schaltung den eigenen, für deine Webdomain eingeschränkten Mapbox Public Token (pk...) eintragen.
+// Ohne konfigurierten Kartendienst werden keinerlei Kundenadressen an externe Routing-APIs gesendet.
+window.MOBILE_MASSAGE_ROUTE_CONFIG=window.MOBILE_MASSAGE_ROUTE_CONFIG||{mapboxPublicToken:''};
+
+</script><script>
+(()=>{
+  'use strict';
+  const $ = id=>document.getElementById(id);
+  const form=$('appointment-request-form'); if(!form)return;
+  const durationStep=$('duration-step'),calendarStep=$('calendar-step'),end=$('request-end');
+  const message=$('booking-validation-message');
+  const inputNames=['client-name','client-email','client-zip','client-street'];
+  const inputList=inputNames.map($);
+  const city=$('client-zip'),street=$('client-street'),origin=$('start-point');
+  const count60=$('count-60'),count90=$('count-90'),persons=$('persons-count'),days=$('calendar-days'),month=$('calendar-month');
+  const summary=$('appointment-summary'),status=$('appointment-submit-status');
+  const needTable=$('need-table'),needLinens=$('need-linens');
+  const massageKinds=[...form.querySelectorAll('input[name="massage-kind"]')];
+  const chosenMassageKinds=()=>massageKinds.filter(x=>x.checked).map(x=>x.value);
+  massageKinds.forEach(x=>x.addEventListener('change',()=>updateSummary()));
+  // Ausstattung ist im Massagepreis enthalten, ohne Aufpreis.
+  const equipmentFee=()=>0;
+  function toggleAccess(){ updateSummary(); }
+  [needTable,needLinens].forEach(el=>el.addEventListener('change',toggleAccess));
+
+  const timeButtons=[...form.querySelectorAll('[data-time]')];
+  const STARTS={
+    // Approximate village/city centers, NOT private addresses.
+    schenefeld:{name:'22869 Schenefeld',lat:53.6011,lon:9.8225}
+  };
+  const fmtMoney=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(v);
+
+  // 60- und 90-Minuten-Behandlungen dürfen zusammen gewählt werden, maximal 6 pro Anfrage.
+  const quantity=el=>Math.max(0,Math.min(6,Number.parseInt(el.value,10)||0));
+  const chosenCount=()=>quantity(count60)+quantity(count90);
+  const personCount=()=>Math.max(1,Math.min(6,Number.parseInt(persons.value,10)||1));
+  persons.addEventListener('change',()=>updateSummary());
+  const treatmentPrice=()=>quantity(count60)*100+quantity(count90)*140;
+  const visitDiscount=()=>Math.round((quantity(count60)*15+quantity(count90)*22)*100)/100;
+  const totalMinutes=()=>quantity(count60)*60+quantity(count90)*90;
+  const reveal=(node,yes)=>{node.hidden=!yes;node.classList.toggle('booking-hidden',!yes)};
+  const updateProgress=n=>[1,2,3].forEach(i=>{const el=$('progress-'+i);el.classList.toggle('is-current',i===n);el.classList.toggle('is-done',i<n)});
+  const today=new Date();today.setHours(0,0,0,0);
+  const pad=x=>String(x).padStart(2,'0');
+  const dateKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+  const dateLabel=key=>new Date(Number(key.slice(0,4)),Number(key.slice(5,7))-1,Number(key.slice(8,10))).toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  let viewMonth=new Date(today.getFullYear(),today.getMonth(),1),chosenDate='',chosenTime='',route=null,routeAttempted=false,routeBusy=false,lastBody='';
+  const clearMessage=()=>{message.textContent='';message.hidden=true};
+  const showMessage=msg=>{message.textContent=msg;message.hidden=false};
+  function clearRoute(){routeSeq++;route=null;routeAttempted=false;routeBusy=false;updateSummary()}
+  [city,street,origin].forEach(x=>x.addEventListener('change',()=>{clearRoute();reveal(durationStep,false);reveal(calendarStep,false);reveal(end,false);updateProgress(1)}));
+  function checkContact(){
+    for(const el of inputList){
+      if(!el.checkValidity()){showMessage(el.validity.valueMissing?'Bitte alle Pflichtfelder ausfüllen.':'Bitte die Eingaben überprüfen.');el.reportValidity();el.focus();return false}
+    }
+    if(!/\b\d{5}\b/.test(city.value)){showMessage('Bitte die fünfstellige Postleitzahl und den Ort angeben.');city.focus();return false}
+    if(!/\d+[a-z]?\b/i.test(street.value)){showMessage('Bitte Straße und Hausnummer eingeben.');street.focus();return false}
+    clearMessage();return true;
+  }
+  // Gently pace consecutive geocoding and routing requests.
+  let lastRequest=0;
+  const throttle=async()=>{const delay=Math.max(0,1100-(Date.now()-lastRequest));if(delay)await new Promise(r=>setTimeout(r,delay));lastRequest=Date.now()};
+  async function getJson(url,ms=13000){
+    const abort=new AbortController();const timer=setTimeout(()=>abort.abort(),ms);
+    try{
+      await throttle();const r=await fetch(url,{signal:abort.signal,headers:{'Accept':'application/json'}});
+      if(!r.ok)throw Error('Kartendienst antwortet nicht ('+r.status+').');return await r.json();
+    }finally{clearTimeout(timer)}
+  }
+  const CONFIG=window.MOBILE_MASSAGE_ROUTE_CONFIG||{};
+  const mapboxToken=String(CONFIG.mapboxPublicToken||'').trim();
+  const removeDiacritics=t=>t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
+  // Address lookup uses configured Mapbox when available or public OSM service.
+  async function geocode(){
+    const house=street.value.trim().match(/^(.*?)\s+(\d+[a-z]?)\s*$/i);
+    const postcode=city.value.match(/\b\d{5}\b/)?.[0];
+    const place=city.value.replace(postcode||'','').trim();
+    if(!house||!postcode||!place)throw Error('Unvollständige Adresse.');
+    if(/^pk\./.test(mapboxToken)) {
+      const params=new URLSearchParams({country:'de',address_number:house[2],street:house[1],postcode,place,
+        types:'address',autocomplete:'false',limit:'1',language:'de',access_token:mapboxToken});
+      const data=await getJson('https://api.mapbox.com/search/geocode/v6/forward?'+params);
+      const hits=(data.features||[]).filter(f=>{
+        if(f.properties?.feature_type!=='address')return false;
+        const match=f.properties?.match_code||{};
+        // Keine Kosten auf Basis einer bloß vermuteten Straße / Hausnummer / PLZ anzeigen.
+        if(['unmatched','plausible'].includes(match.address_number)||match.street==='unmatched'||match.postcode==='unmatched')return false;
+        return Number.isFinite(Number(f.properties?.coordinates?.latitude??f.geometry.coordinates?.[1]))&&
+               Number.isFinite(Number(f.properties?.coordinates?.longitude??f.geometry.coordinates?.[0]));
+      });
+      return hits.map(f=>({lat:Number(f.properties?.coordinates?.latitude??f.geometry.coordinates[1]),lon:Number(f.properties?.coordinates?.longitude??f.geometry.coordinates[0]),display_name:f.properties?.full_address||''}));
+    }
+    const q=street.value.trim()+', '+postcode+' '+place+', Deutschland';
+    const params=new URLSearchParams({q,format:'json',addressdetails:'1',limit:'5',countrycodes:'de'});
+    const data=await getJson('https://nominatim.openstreetmap.org/search?'+params,17000);
+    const hits=(Array.isArray(data)?data:[]).filter(item=>{
+      const address=item.address||{};
+      if(address.postcode && address.postcode!==postcode)return false;
+      if(address.house_number && removeDiacritics(address.house_number)!==removeDiacritics(house[2]))return false;
+      // Do not silently price from a town centre instead of a full street address.
+      return Boolean(address.road||address.pedestrian) && Boolean(address.house_number);
+    });
+    return hits.map(item=>({lat:Number(item.lat),lon:Number(item.lon),display_name:item.display_name||''}));
+  }
+  // Nur einfache Hinfahrt über Straßen (keine berechnete Rückfahrt).
+  async function routedOneWayKm(from,to){
+    const coords=`${from.lon},${from.lat};${to.lon},${to.lat}`;
+    const url=`https://api.mapbox.com/directions/v5/mapbox/driving/${coords}?overview=false&steps=false&access_token=${encodeURIComponent(mapboxToken)}`;
+    const result=await getJson(url,18000);
+    if(Number.isFinite(result.routes?.[0]?.distance)&&result.routes[0].distance>0)return result.routes[0].distance/1000;
+    throw Error('Es konnte keine verlässliche Anfahrtsstrecke ermittelt werden.');
+  }
+  function fareFor(start,kmOneWay){
+    const km=Math.ceil(kmOneWay*10)/10; // einfache Anfahrt auf 0,1 km aufgerundet
+    const freeKm=10;
+    const chargeable=Math.max(0,Math.round((km-freeKm)*10)/10);
+    return {start,oneWay:km,chargeable,freeKm,amount:Math.round(chargeable*0.8*100)/100}; // 0,80 €/km
+  }
+  // Automatisch berechnen, sobald die Kundendaten bestätigt wurden.
+  // Solange kein eigener Kartenschlüssel hinterlegt ist, bleibt der Fahrpreis offen.
+  let routeSeq=0;
+  async function calculateRouteSilently(){
+    // Standardmäßig keine Weitergabe privater Massageadressen an unkonfigurierte Fremddienste.
+    // Nach Einrichtung eines geeigneten Dienstes Datenschutzinformation und Rechtsgrundlage aktualisieren.
+    if(!/^pk\./.test(mapboxToken)){routeAttempted=true;route=null;routeBusy=false;updateSummary();return;}
+    const seq=++routeSeq;
+    routeAttempted=true;route=null;updateSummary();
+    routeBusy=true;
+    try{
+      const matches=await geocode();
+      // Mehrdeutige Hausnummern niemals auf Verdacht berechnen.
+      if(matches.length!==1)return;
+      const hit=matches[0],dest={lat:hit.lat,lon:hit.lon};
+      const starts=['schenefeld'];
+      const candidates=[];
+      for(const k of starts){const km=await routedOneWayKm(STARTS[k],dest);candidates.push(fareFor(k,km))}
+      if(seq!==routeSeq)return;
+      candidates.sort((a,b)=>a.amount-b.amount||a.oneWay-b.oneWay);
+      route={...candidates[0],matchedAddress:hit.display_name||street.value+', '+city.value};
+    }catch(e){if(seq===routeSeq)route=null}
+    finally{if(seq===routeSeq){routeBusy=false;updateSummary()}}
+  }
+  $('continue-to-duration').addEventListener('click',()=>{
+    if(!checkContact())return;
+    // Strecke im Hintergrund ermitteln, ohne separate Taste oder Zwischenanzeige.
+    void calculateRouteSilently();
+    reveal(durationStep,true);
+    if(chosenCount()>0)syncDurations();else updateProgress(2);
+    durationStep.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  let slotsAvailable=new Set();
+  let slotsLoadedFor='';
+  async function loadAvailableSlots(){
+    // Erstupload auf statischem Hostinger-Webhosting: noch keine Live-Kalenderverbindung.
+    slotsAvailable=new Set();
+    slotsLoadedFor='';
+    timeButtons.forEach(b=>{if(b.dataset.time!=='Zeitlich flexibel')b.disabled=false});
+    if(chosenDate)status.textContent='Wunschzeit unverbindlich: Die Verfügbarkeit wird erst nach deiner Anfrage bestätigt.';
+  }
+  function renderCalendar(){
+    month.textContent=viewMonth.toLocaleDateString('de-DE',{month:'long',year:'numeric'});
+    $('prev-month').disabled=viewMonth.getFullYear()===today.getFullYear()&&viewMonth.getMonth()===today.getMonth();
+    days.replaceChildren();const offset=(new Date(viewMonth.getFullYear(),viewMonth.getMonth(),1).getDay()+6)%7;
+    for(let i=0;i<offset;i++){const x=document.createElement('span');x.className='calendar-empty';x.setAttribute('aria-hidden','true');days.append(x)}
+    const countDays=new Date(viewMonth.getFullYear(),viewMonth.getMonth()+1,0).getDate();
+    for(let i=1;i<=countDays;i++){
+      const d=new Date(viewMonth.getFullYear(),viewMonth.getMonth(),i),key=dateKey(d),b=document.createElement('button');
+      b.type='button';b.className='calendar-day';b.textContent=i;b.disabled=d<today;b.setAttribute('aria-label',dateLabel(key));b.setAttribute('aria-pressed',String(key===chosenDate));
+      if(key===dateKey(today))b.classList.add('is-today');if(key===chosenDate)b.classList.add('is-selected');
+      b.addEventListener('click',()=>{chosenDate=key;chosenTime='';status.textContent='';timeButtons.forEach(t=>t.classList.remove('selected'));$('custom-time').value='';renderCalendar();reveal(end,true);updateSummary();void loadAvailableSlots()});days.append(b);
+    }
+  }
+  const syncDurations=()=>{
+    const hasSelection=chosenCount()>0;
+    reveal(calendarStep,hasSelection&&!durationStep.hidden);
+    updateProgress(hasSelection?3:2);
+    if(!hasSelection)reveal(end,false);
+    else {renderCalendar();reveal(end,true);if(chosenDate)void loadAvailableSlots()}
+    updateSummary();
+  };
+  const changeQuantity=(input,other,n)=>{
+    const otherCount=quantity(other);
+    input.value=Math.max(0,Math.min(6-otherCount,Math.round(Number(n)||0)));
+    if(status.textContent.startsWith('Bitte '))status.textContent='';
+    syncDurations();
+  };
+  for(const [input,other,unit] of [[count60,count90,'60'],[count90,count60,'90']]){
+    $('count-'+unit+'-minus').addEventListener('click',()=>changeQuantity(input,other,quantity(input)-1));
+    $('count-'+unit+'-plus').addEventListener('click',()=>changeQuantity(input,other,quantity(input)+1));
+    input.addEventListener('input',()=>changeQuantity(input,other,input.value));
+    input.addEventListener('change',()=>changeQuantity(input,other,input.value));
+  }
+  $('prev-month').addEventListener('click',()=>{viewMonth=new Date(viewMonth.getFullYear(),viewMonth.getMonth()-1,1);renderCalendar()});
+  $('next-month').addEventListener('click',()=>{viewMonth=new Date(viewMonth.getFullYear(),viewMonth.getMonth()+1,1);renderCalendar()});
+  timeButtons.forEach(b=>b.addEventListener('click',()=>{if(b.disabled)return;chosenTime=b.dataset.time;status.textContent='';timeButtons.forEach(t=>{t.classList.toggle('selected',t===b);t.setAttribute('aria-pressed',String(t===b))});$('custom-time').value='';reveal(end,true);updateSummary()}));
+  $('custom-time').addEventListener('change',e=>{if(e.target.value){chosenTime=e.target.value;status.textContent='';timeButtons.forEach(t=>{t.classList.remove('selected');t.setAttribute('aria-pressed','false')});reveal(end,true);updateSummary()}});
+  $('show-costs').addEventListener('click',()=>{
+    reveal(end,true);updateSummary();
+    end.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  function updateSummary(){
+    if(!chosenCount())return;
+    const cost=treatmentPrice(),service=equipmentFee(),distance=route?.amount;
+    const subtotal=cost+service;
+    summary.replaceChildren();
+    const h=document.createElement('strong');h.textContent='Deine Kostenübersicht';summary.append(h);
+    const row=(label,value)=>{const d=document.createElement('div');d.className='summary-line';const a=document.createElement('span');a.textContent=label;const b=document.createElement('span');b.textContent=value;d.append(a,b);summary.append(d)};
+    row('Wunschtermin',chosenDate&&chosenTime?dateLabel(chosenDate)+' · '+chosenTime:'Bitte noch Datum und Uhrzeit auswählen');
+    row('Anzahl Personen',personCount()+' '+(personCount()===1?'Person':'Personen'));
+    if(chosenMassageKinds().length)row('Massageart(en)',chosenMassageKinds().join(', '));
+    if(quantity(count60)>0)row('60 Minuten',quantity(count60)+' × 100 € = '+fmtMoney(quantity(count60)*100));
+    if(quantity(count90)>0)row('90 Minuten',quantity(count90)+' × 140 € = '+fmtMoney(quantity(count90)*140));
+    row('Gesamte Behandlungszeit',totalMinutes()+' Minuten');
+    row('Behandlungspreis',fmtMoney(cost));
+    // Ausstattung ist bereits inklusive.
+    row(route?'Anfahrt (einfach '+new Intl.NumberFormat('de-DE',{maximumFractionDigits:1}).format(route.oneWay)+' km)':'Anfahrt',distance==null?(routeBusy?'Wird berechnet …':'Nach Prüfung'):fmtMoney(distance));
+    row('Kennenlernrabatt (15 € je 60 Minuten)','− '+fmtMoney(visitDiscount()));
+    const total=document.createElement('div');total.className='request-total';const label=document.createElement('span');label.textContent=distance==null?'Zwischensumme (Fahrtkosten noch offen)':'Gesamtpreis inklusive Anfahrt';const amount=document.createElement('strong');amount.textContent=fmtMoney(subtotal+(distance??0)-visitDiscount());total.append(label,amount);summary.append(total);
+    const priceInfo=document.createElement('p');priceInfo.className='az-summary-info';priceInfo.textContent=distance==null?(routeBusy?'Die einfache Straßenstrecke ab 22869 Schenefeld wird ermittelt. Bis dahin ist noch kein verbindlicher Gesamtpreis möglich.':'Die Anfahrt wird vor der Terminbestätigung geprüft. 10 km ab 22869 Schenefeld sind inklusive; danach 0,80 € je weiterem Kilometer.'):(route.freeKm?'10 km Anfahrt ab 22869 Schenefeld sind inklusive; die berechneten Zusatzkilometer sind eingerechnet.':'Die Gesamtsumme enthält die einfache Anfahrt zum Massageort.');summary.append(priceInfo);
+    const taxNote=document.createElement('p');taxNote.className='booking-tax-note';taxNote.textContent='Umsatzsteuerfrei gemäß § 19 Abs. 1 UStG (Kleinunternehmerregelung) – keine Umsatzsteuer ausgewiesen.';summary.append(taxNote);
+  }
+  const getText=()=>{
+    const d=new FormData(form),n60=quantity(count60),n90=quantity(count90),treatment=treatmentPrice();
+    const subtotal=treatment,total=subtotal+(route?.amount||0)-visitDiscount();
+    const equipment=[needTable.checked?'Massageliege':null,needLinens.checked?'Handtücher und Auflagen':null].filter(Boolean).join(', ')||'Keine Ausstattung benötigt';
+    const subject='Auszeitmoment Terminanfrage – '+dateLabel(chosenDate);
+    const body=['Guten Tag,','','ich möchte folgende mobile Massage anfragen:','',
+      'Name: '+d.get('name'),'E-Mail: '+d.get('email'),'Telefon: '+(d.get('phone')||'Nicht angegeben'),
+      'Massageadresse: '+d.get('street')+', '+d.get('city'),
+      'Anzahl Personen: '+personCount(),
+      'Anfahrt ab: 22869 Schenefeld',
+      'Benötigte Ausstattung: '+equipment,
+      'Gewünschte Massageart(en): '+(chosenMassageKinds().join(', ')||'Noch offen / bitte abstimmen'),
+      '60-Minuten-Behandlungen: '+n60+' × 100 € = '+fmtMoney(n60*100),
+      '90-Minuten-Behandlungen: '+n90+' × 140 € = '+fmtMoney(n90*140),
+      'Anzahl der Behandlungen insgesamt: '+chosenCount(),
+      'Gesamte Behandlungszeit: '+totalMinutes()+' Minuten',
+      'Behandlungspreis: '+fmtMoney(treatment),
+      'Anfahrt'+(route?' (gesamt '+route.oneWay.toFixed(1)+' km)':'')+': '+(route?fmtMoney(route.amount):'Nach Prüfung'),
+      'Kennenlernrabatt (15 € je 60 Minuten): − '+fmtMoney(visitDiscount()),
+      (route?'Gesamtpreis einschließlich Anfahrt: ':'Zwischensumme ohne Fahrtkosten: ')+fmtMoney(total),
+      'Wunschtag: '+dateLabel(chosenDate),'Wunschzeit: '+chosenTime,
+      'Weitere Wünsche: '+(d.get('message')||'Keine'),'','Vielen Dank!'].join('\n');
+    return {subject,body};
+  };
+  const emailDestination='auszeitmoment.info@gmail.com';
+  const whatsappDestination='4915511562360';
+  const smsDestination='+4915511562360';
+  let lastSavedSignature='';
+  let savingSignature='';
+  const sendVia=async channel=>{
+    if(!$('agb-accepted').checked){status.textContent='Bitte bestätige zuerst die AGB und die Datenschutzhinweise.';$('agb-accepted').focus();return}
+    if(!checkContact()){status.textContent='Bitte überprüfe deine Kontaktdaten.';return}
+    if(durationStep.hidden||calendarStep.hidden||!chosenCount()){status.textContent='Bitte zuerst mindestens eine Behandlung auswählen.';return}
+    if(!chosenDate){status.textContent='Bitte wähle noch ein Datum im Kalender.';$('calendar-days').scrollIntoView({behavior:'smooth',block:'center'});return}
+    if(!chosenTime){status.textContent='Bitte wähle noch eine Uhrzeit oder »Zeitlich flexibel«.';$('custom-time').scrollIntoView({behavior:'smooth',block:'center'});return}
+    if(chosenTime!=='Zeitlich flexibel' && slotsLoadedFor===chosenDate+'-'+totalMinutes()&&!slotsAvailable.has(chosenTime)){
+      status.textContent='Die gewählte Zeit ist inzwischen nicht mehr frei. Bitte eine andere Uhrzeit auswählen.';return;
+    }
+    const d=new FormData(form);
+    const payload={name:String(d.get('name')||''),email:String(d.get('email')||''),phone:String(d.get('phone')||''),
+      street:String(d.get('street')||''),city:String(d.get('city')||''),origin:String(d.get('origin')||''),
+      massage:chosenMassageKinds().join(', ')||'Mobile Massagebehandlung',qty60:quantity(count60),qty90:quantity(count90),
+      day:chosenDate,start_time:chosenTime==='Zeitlich flexibel'?'00:00':chosenTime,
+      table_needed:needTable.checked,oil_needed:false,linens_needed:needLinens.checked,
+      lift:'',floor:'',
+      notes:'Anzahl Personen: '+personCount()+'\n'+(chosenTime==='Zeitlich flexibel'?'Zeitlich flexibel – bitte Termin abstimmen.\n':'')+String(d.get('message')||''),
+      travel_fee:route?.amount??null,travel_km:route?.oneWay??null};
+    const {subject,body}=getText();lastBody='Betreff: '+subject+'\n\n'+body;$('copy-booking').hidden=false;
+    // WhatsApp benötigt weiterhin WhatsApp; der E-Mail-Knopf sendet DIREKT an den eigenen Server.
+    if(channel==='whatsapp'){
+      const url='https://wa.me/'+whatsappDestination+'?text='+encodeURIComponent(subject+'\n\n'+body);
+      window.open(url,'_blank','noopener,noreferrer');
+      status.textContent='WhatsApp wurde geöffnet. Bitte die vorbereitete Nachricht dort selbst absenden.';
+    }
+    if(channel==='sms'){
+      // Standard SMS deep link: the user's device opens its own SMS composer.
+      // The customer must still press Send; on a desktop there may be no SMS app.
+      status.textContent='Die SMS-App wird mit deiner vorbereiteten Nachricht geöffnet. Bitte dort selbst senden (am besten auf dem Smartphone).';
+      const smsUrl='sms:'+smsDestination+'?body='+encodeURIComponent(subject+'\n\n'+body);
+      try{window.location.assign(smsUrl)}
+      catch(_err){status.textContent='Die SMS-App konnte nicht geöffnet werden. Bitte verwende ein Smartphone oder WhatsApp.'}
+      return;
+    }
+    if(channel==='email')payload.delivery='email';
+    const signature=JSON.stringify(payload);
+    if(signature===savingSignature)return;
+    if(signature===lastSavedSignature){
+      if(channel==='email')status.textContent='Diese Terminanfrage wurde bereits übermittelt.';
+      return;
+    }
+    savingSignature=signature;
+    const emailButton=$('send-booking-email');
+    if(channel==='email'){
+      emailButton.disabled=true;
+      status.textContent='Terminanfrage wird direkt über die Webseite gesendet …';
+    }
+    try{
+      const res=await fetch('/api/bookings',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:signature});
+      const result=await res.json();if(!res.ok)throw new Error(result.error||'Senden fehlgeschlagen');
+      lastSavedSignature=signature;
+      if(channel==='email'){
+        status.textContent=result.email_sent
+          ? 'Deine Terminanfrage wurde direkt versendet. Du bekommst die Terminbestätigung separat.'
+          : 'Deine Anfrage wurde gespeichert, aber die Benachrichtigung per E-Mail konnte nicht versendet werden. Bitte verwende WhatsApp oder kontaktiere uns direkt.';
+      }else{
+        status.textContent+=' Die Anfrage wurde zusätzlich in der Terminverwaltung hinterlegt.';
+      }
+    }catch(err){
+      if(channel==='email')status.textContent='Direkter Versand derzeit nicht möglich: '+(err?.message||'Verbindung fehlgeschlagen')+' Bitte WhatsApp nutzen oder später erneut versuchen.';
+      else status.textContent+=' Hinweis: Im internen Kalender konnte die Anfrage nicht automatisch gespeichert werden. Bitte die Nachricht in WhatsApp absenden.';
+    }finally{
+      if(savingSignature===signature)savingSignature='';
+      if(channel==='email')emailButton.disabled=false;
+    }
+  };
+  form.addEventListener('submit',e=>e.preventDefault());
+  $('send-booking-email').addEventListener('click',()=>{void sendVia('email')});
+  $('send-booking-whatsapp').addEventListener('click',()=>{void sendVia('whatsapp')});
+  $('send-booking-sms').addEventListener('click',()=>{void sendVia('sms')});
+  $('copy-booking').addEventListener('click',async()=>{
+    if(!lastBody)return;
+    try{await navigator.clipboard.writeText(lastBody);status.textContent='Anfragezusammenfassung kopiert.'}
+    catch{
+      const t=document.createElement('textarea');t.value=lastBody;t.style.position='fixed';t.style.opacity='0';document.body.append(t);t.select();const ok=document.execCommand('copy');t.remove();status.textContent=ok?'Anfragezusammenfassung kopiert.':'Kopieren nicht möglich. Bitte die Daten aus der Zusammenfassung übernehmen.';
+    }
+  });
+  toggleAccess();
+  renderCalendar();
+})();
+
+</script></body></html>
