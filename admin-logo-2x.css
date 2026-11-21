@@ -1,0 +1,4 @@
+/* Logo on the admin login is also twice the original width (270px). */
+.login-card { width: min(94vw, 660px) !important; }
+.login-card .login-logo { width: min(100%, 540px) !important; height: auto !important; max-width: none !important; }
+@media(max-width:700px) { .login-card { padding: 28px 20px !important; } .login-card .login-logo { width: 100% !important; } }
